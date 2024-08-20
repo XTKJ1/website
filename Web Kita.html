@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<title>Website X TKJ 1</title>
+<link rel="icon" type="image/x-icon" href="https://malasid.github.io/favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://badoystudio.com/cloudme.fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+        .agenda-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .agenda-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .agenda-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .agenda-item {
+            background-color: #e6f7ff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            text-align: left;
+        }
+        .agenda-item:last-child {
+            margin-bottom: 0;
+        }
+        .agenda-name {
+            font-weight: bold;
+        }
+        .agenda-note {
+            font-size: 15px;
+            color: #674;
+            text-align: left;
+        }
+        .agenda-time {
+            font-size: 12px;
+            color: #555;
+            text-align: left;
+        }
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+</style>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+<div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+<a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+<a href="" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Web</a>
+<a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i>  News</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+<a href="" class="w3-bar-item w3-button w3-padding-large">+</a>
+<a href="https://instagram.com/lasnanl" class="w3-bar-item w3-button w3-padding-large">Pembuat Website X TKJ 1</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px"> 
+<!-- The Grid -->
+<div class="w3-row">
+<!-- Left Column -->
+<div class="w3-col m3">
+</div>
+
+<!-- Accordion -->
+<div class="w3-card w3-round">
+<div class="w3-white">
+<button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-user fa-fw w3-margin-right"></i> Wali Kelas</button>
+<div id="Demo1" class="w3-hide w3-container">
+<p>Pak Apian Candra</p>
+</div>
+<button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> Total Murid</button>
+<div id="Demo3" class="w3-hide w3-container">
+<p>Laki Laki : 31 <br> Perempuan : 6 <br> Total Siswa : 37</p>
+</div>
+<button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> Tanggal</button>
+<div id="Demo2" class="w3-hide w3-container">
+<p>Something Erorr..</p>
+</div>
+</div>
+</div>
+</div> 
+</div>
+<br>
+
+<!-- Alert Box -->
+<div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-small">
+<span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+<i class="fa fa-remove"></i>
+</span>
+<p><strong>Hey!</strong></p>
+<p>Website ini live, pantau terus ya agar tidak ketinggalan informasi dari website ini!</p>
+</div>
+
+<!-- End Left Column -->
+</div>
+
+<div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+<img src="https://k.top4top.io/p_3021hx7y70.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+<span class="w3-right w3-opacity">30 min</span>
+<h4>Nan Turu</h4><br>
+<hr class="w3-clear">
+<p>Hai di sini saya akan infokan ada agenda apa saja besok, yuk di scroll ke bawah</p>
+<button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+<button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+</div>
+
+<!-- End Middle Column -->
+</div>
+
+<!-- Right Column -->
+<div class="agenda-container">
+    <div class="agenda-title">Agenda Sekolah Besok</div>
+    <ul class="agenda-list">
+        <li class="agenda-item">
+            <div class="agenda-name">Seragam:<br> -Baju Batik Sekolah <br> -Celana Putih</div>
+        </li>
+        <li class="agenda-item">
+            <div class="agenda-name">Mata Pelajaran:<br> -K3LH <br> -Teknik Jaringan Komputer <br> -Bahasa Inggris <br> -Senibudaya </div>
+        </li>
+        <li class="agenda-item">
+            <div class="agenda-name">Piket:<br> -Riany <br> -Syahdan <br> -Dimas <br> -Priyatno<br> -Reyzal <br> -Raka </div>
+        </li>
+        <li class="agenda-item">
+            <div class="agenda-name">Pr:<br> -Tidak Ada</div>
+            <div class="agenda-note"></div>
+        </li>
+        <li class="agenda-item">
+            <div class="agenda-name">Kegiatan: <br> -Belajar <br> -Presentasi K3LH <br> (bagi yang belum presentasi)</div>
+        </li>
+    </ul>
+    <div class="agenda-time">Tanggal: Kamis 22 Agustus 2024</div>
+</div>
+
+<br>
+<!-- Middle Column -->
+<div class="w3-col m7">
+
+<div class="w3-row-padding">
+<div class="w3-col m12">
+<div class="w3-card w3-round w3-white">
+<div class="w3-container w3-padding">
+<h6 class="w3-opacity">Apa Yang Kamu Ingin Sampai Kan</h6>
+<p contenteditable="true" class="w3-border w3-padding"></p>
+<button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+</div>
+</div>
+</div>
+</div>
+<br>
+
+<!-- Interests --> 
+<div class="w3-card w3-round w3-white w3-small">
+<div class="w3-container">
+<p>Tags</p>
+<p>
+<span class="w3-tag w3-small w3-theme-d5">News</span>
+<span class="w3-tag w3-small w3-theme-d4">Web</span>
+<span class="w3-tag w3-small w3-theme-d3">Labels</span>
+<span class="w3-tag w3-small w3-theme-d2">Games</span>
+<span class="w3-tag w3-small w3-theme-d1">Friends</span>
+<span class="w3-tag w3-small w3-theme">Games</span>
+<span class="w3-tag w3-small w3-theme-l1">School</span>
+<span class="w3-tag w3-small w3-theme-l2">Schooling</span>
+<span class="w3-tag w3-small w3-theme-l3">Design</span>
+<span class="w3-tag w3-small w3-theme-l4">Art</span>
+<span class="w3-tag w3-small w3-theme-l5">Photos</span>
+</p>
+</div>
+</div>
+
+<!-- End Right Column -->
+</div>
+
+<!-- End Grid -->
+</div>
+
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-white-d3 w3-padding-16">
+<h5>X TKJ 1 DI SINI</h5>
+</footer>
+
+<footer class="w3-container w3-theme-d5">
+<p>Di Kembangkan Oleh <a href="https://instagram.com/x_tkjonee" target="_blank">X TKJ 1</a></p>
+</footer>
+
+<script>
+// Accordion
+function myFunction(id) {
+var x = document.getElementById(id);
+if (x.className.indexOf("w3-show") == -1) {
+x.className += " w3-show";
+x.previousElementSibling.className += " w3-theme-d1";
+} else { 
+x.className = x.className.replace("w3-show", "");
+x.previousElementSibling.className = 
+x.previousElementSibling.className.replace(" w3-theme-d1", "");
+}
+}
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+var x = document.getElementById("navDemo");
+if (x.className.indexOf("w3-show") == -1) {
+x.className += " w3-show";
+} else { 
+x.className = x.className.replace(" w3-show", "");
+}
+}
+</script>
+
+</body>
+</html>
