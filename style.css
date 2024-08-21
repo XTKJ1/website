@@ -39,4 +39,9 @@
             color: #555;
             text-align: left;
         }
+        .tokx {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
 html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
