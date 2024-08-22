@@ -100,9 +100,16 @@
 <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
 <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
 </div>
-
-<!-- End Middle Column -->
 </div>
+
+<div class="pokscon">
+<span id="hours"></span>:
+<span id="minutes"></span>:
+<span id="seconds"></span>:
+<span id="ms"></span>
+</div>
+
+<br>
 
 <!-- Right Column -->
 <div class="agenda-container">
@@ -122,6 +129,9 @@
             <div class="agenda-note">Note: yang 15 soal dari Jumat 09 Agustus 2024</div>
             <div class="agenda-name">-Teknik Jaringan Komputer</div>
             <div class="agenda-note">Note: yang catatan dari Kamis 22 Agustus 2024</div>
+        </li>
+        <li class="agenda-item">
+            <div class="agenda-name">Detail Pr:<br><a href="detailpr/index.html" style="text-decoration:none;">Klik Aku</a></div>
         </li>
         <li class="agenda-item">
             <div class="agenda-name">Kegiatan: <br> -Belajar  <br> -Coblos Osis <br> -Yasin malam sabtu <br>(khusus laki laki)</div>
@@ -208,6 +218,11 @@ x.className += " w3-show";
 x.className = x.className.replace(" w3-show", "");
 }
 }
+var today = new Date();
+  document.getElementById("hours").innerHTML = today.getHours();
+  document.getElementById("minutes").innerHTML = today.getMinutes();
+  document.getElementById("seconds").innerHTML = today.getSeconds();
+  document.getElementById("ms").innerHTML = today.getMilliseconds();
 </script>
 
 </body>
