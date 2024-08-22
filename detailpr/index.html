@@ -71,6 +71,17 @@
             width: calc(100% - 40px);
         }
         
+        @media only screen and (max-width: 600px) {
+            input {
+                width: 100%;
+                max-width: none;
+            }
+            
+         .result {
+            text-align: center;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -114,14 +125,31 @@
             alert('Hayo ngapain, Ga Boleh Nyontek!!!');
         }
         
-  const redeemCodes = ["adnanganteng", "khodamhere", "smk11maret"];
+  const redeemCodes = ["tkj1sini", "akujelek", "abcdef"];
           function showRedeemAlert() {
             document.getElementById('redeemAlert').style.display = 'block';
+        }
+        
+    let redeemed = JSON.parse(localStorage.getItem('redeemed')) || {};
+        
+        function showAlert() {
+            document.getElementById('mysticAlert').style.display = 'block';
+        }
+        
+        function closeAlert() {
+            document.getElementById('mysticAlert').style.display = 'none';
         }
 
         function closeRedeemAlert() {
             document.getElementById('redeemAlert').style.display = 'none';
         }
+        
+        function showRedeemAlert() {
+            document.getElementById('redeemAlert').style.display = 'block';
+        }
+        
+        resetUsageLimit();
+        
                 function redeemCode() {
             const redeemCodeInput = document.getElementById('redeemCodeInput').value;
             if (redeemCodes.includes(redeemCodeInput) && !redeemed[userIP]) {
@@ -131,7 +159,7 @@
                 localStorage.setItem('redeemed', JSON.stringify(redeemed));
                 document.getElementById('remainingUses').innerText = usageLimit + 100 - usageCount;
                 closeRedeemAlert();
-                alert('Redeem code berhasil! Anda mendapatkan 100 limit tambahan.');
+                alert('Jawabannya Jawab.');
             } else {
                 alert('Password salah bos.');
             }
