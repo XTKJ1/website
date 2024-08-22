@@ -35,6 +35,42 @@
           font-family: "Open Sans", sans-serif;
         }
         
+        .redeem-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1a0000;
+            border: 2px solid #ff4444;
+            padding: 20px;
+            color: #ff4444;
+            display: none;
+            z-index: 1000;
+            text-align: center;
+        }
+        
+        .redeem-alert h2 {
+            margin: 0 0 10px;
+        }
+        
+        .redeem-alert p {
+            margin: 0;
+        }
+        
+        .redeem-alert button {
+            margin-top: 20px;
+            background-color: #660000;
+            color: #ff4444;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        .redeem-alert input {
+            margin: 10px 0;
+            width: calc(100% - 40px);
+        }
+        
     </style>
 </head>
 <body>
@@ -42,6 +78,7 @@
 <header>
     <h1>Detail PR</h1>
 </header>
+
 <center>
 <div class="container">
     <div class="content">
@@ -60,10 +97,46 @@
 <center>
 <div class="container">
     <div class="content">
+      <center><button onclick="showRedeemAlert()">=</button></center>
         <h3>Cari Jawaban?</h3>
-        <p>Ga boleh nyontek!!</p>
+        <p>Click tombol di bawah ini</p>
+        <button onclick="jawab()">Klik</button>
+        <div class="redeem-alert" id="redeemAlert">
+        <input type="text" id="redeemCodeInput" placeholder="Masukan Password">
+        <button onclick="redeemCode()">Ok</button>
+        <button onclick="closeRedeemAlert()">Tutup</button>
+    </div>
       </div>
 </center>
+
+<script>
+  function jawab() {
+            alert('Hayo ngapain, Ga Boleh Nyontek!!!');
+        }
+        
+  const redeemCodes = ["adnanganteng", "khodamhere", "smk11maret"];
+          function showRedeemAlert() {
+            document.getElementById('redeemAlert').style.display = 'block';
+        }
+
+        function closeRedeemAlert() {
+            document.getElementById('redeemAlert').style.display = 'none';
+        }
+                function redeemCode() {
+            const redeemCodeInput = document.getElementById('redeemCodeInput').value;
+            if (redeemCodes.includes(redeemCodeInput) && !redeemed[userIP]) {
+                usageCount += 100;
+                localStorage.setItem('usageCount', usageCount);
+                redeemed[userIP] = true;
+                localStorage.setItem('redeemed', JSON.stringify(redeemed));
+                document.getElementById('remainingUses').innerText = usageLimit + 100 - usageCount;
+                closeRedeemAlert();
+                alert('Redeem code berhasil! Anda mendapatkan 100 limit tambahan.');
+            } else {
+                alert('Password salah bos.');
+            }
+        }
+</script>
 
 </body>
 </html>
