@@ -60,31 +60,10 @@
 <center>
 <div class="container">
     <div class="content">
-      <form id="jokiForm">
-        <h3>Jawaban?</h3>
-        <p>Masukan Password Di Bawah Ini</p>
-        <label for="name">Nama:</label><br>
-        <input type="text" placeholder="                Nama kamu" id="name" name="name" required><br><br>
-        <button type="submit">Ok</button>
+        <h3>Cari Jawaban?</h3>
+        <p>Ga boleh nyontek!!</p>
       </div>
-    </form>
 </center>
-
-
-<script>
-          document.getElementById('jokiForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            let name = document.getElementById('name').value;
-
-            let message = `Nama: ${name}\nEmail: ${email}\nDeskripsi Joki: Halo Min Mau Password Code Jawaban Dong`;
-
-            let whatsappUrl = `https://app.whatsapp.com/send?phone=621412357355&text=${encodeURIComponent(message)}`;
-
-            window.open(whatsappUrl, '_blank');
-        });
-  
-</script>
 
 </body>
 </html>
