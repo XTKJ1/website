@@ -29,11 +29,12 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        
         h1, h2, h3, h4, h5, h6 {
           color: #333;
           font-family: "Open Sans", sans-serif;
         }
-
+        
     </style>
 </head>
 <body>
@@ -56,5 +57,34 @@
         <p>Catatan yang di PDF <br> Catat Semua</p>
       </div>
 </center>
+<center>
+<div class="container">
+    <div class="content">
+      <form id="jokiForm">
+        <h3>Jawaban?</h3>
+        <p>Masukan Password Di Bawah Ini</p>
+        <label for="name">Nama:</label><br>
+        <input type="text" placeholder="                Nama kamu" id="name" name="name" required><br><br>
+        <button type="submit">Ok</button>
+      </div>
+    </form>
+</center>
+
+
+<script>
+          document.getElementById('jokiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let name = document.getElementById('name').value;
+
+            let message = `Nama: ${name}\nEmail: ${email}\nDeskripsi Joki: Halo Min Mau Password Code Jawaban Dong;
+
+            let whatsappUrl = `https://app.whatsapp.com/send?phone=621412357355&text=${encodeURIComponent(message)}`;
+
+            window.open(whatsappUrl, '_blank');
+        });
+  
+</script>
+
 </body>
 </html>
