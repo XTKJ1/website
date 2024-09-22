@@ -59,9 +59,9 @@
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .banner img {
-          width: 10px;
-          height: 10px;
-          margin: 10px;
+          width: 80px;
+          height: 80px;
+          margin: 80px;
         }
         .pokscon, .pokscon span {
             display: flex;
