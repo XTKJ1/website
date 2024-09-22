@@ -46,6 +46,23 @@
             color: #555;
             text-align: center;
         }
+        .sect-banners {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .banner {
+          margin: 10px;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .banner img {
+          width: 100px;
+          height: 100px;
+          margin: 10px;
+        }
         .pokscon, .pokscon span {
             display: flex;
             justify-content: center;
