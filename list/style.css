@@ -112,5 +112,28 @@
     color: #222;
 }
 
+.chat {
+   background-color: #d4edda;
+   color: #155724;
+   padding: 15px;
+   border-radius: 10px;
+   margin-top: 20px;
+   display: flex;
+   align-items: center;
+}
+        
+.chat i {
+   font-size: 24px;
+   margin-right: 10px;
+}
+        
+.chat h3 {
+   margin: 0;
+   font-size: 16px;
+}
 
+.chat p {
+   margin: 5px 0 0;
+   font-size: 14px;
+}
 
