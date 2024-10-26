@@ -68,8 +68,8 @@
 </div>
 <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> Tanggal</button>
 <div id="Demo2" class="w3-hide w3-container">
-<p>Hari Ini : Selasa 15 Oktober 2024</p>
-<p>Besok : Rabu 16 Oktober 2024</p>
+<p id="current-hariini"></p>
+<p id="current-haribesok"></p>
 </div>
 </div>
 </div>
@@ -123,30 +123,18 @@
 <a href><button type="Refresh" class="w3-button w3-white-d2 w3-margin-bottom"><i class="fa fa-circle-o-notch fa-fw w3-margin-center"></i>Refresh</button></a>
 </center>
 
-<!-- Right Column -->
+<!-- Awal Agenda / Right Colum -->
 <div class="agenda-container">
     <div class="agenda-title">Agenda Sekolah Besok</div>
     <ul class="agenda-list">
         <li class="agenda-item">
-            <div class="agenda-name">Seragam:<br> -Baju Pramuka <br> -Celana Pramuka <br> -Kaos Kaki Coklat <br> -Sepatu Hitam </div>
+            <div class="agenda-name" id="current-seragam"></div>
         </li>
         <li class="agenda-item">
-            <!--<div class="agenda-name">Mata Pelajaran: <br> -Informatika <br> -Matematika <br>
-            <div class="agenda-name">Mata Pelajaran: <br> -Bahasa Inggris <br> -Dasar Komputer Jaringan <br> -Seni Budaya <br> -Bahasa Indonesia <br>-->
-            <div class="agenda-name">Mata Pelajaran: <br> -Sejarah <br> -Penjas <br> -Bisnis Teknik Informasi <br>
-            <!--<div class="agenda-name">Mata Pelajaran: <br> -K3LH <br> -Teknik Jaringan Komputer <br> -Bahasa Inggris <br> -Seni Budaya <br>
-            <div class="agenda-name">Mata Pelajaran: <br> -PPKN <br> -Teknik Jaringan Komputer <br> -IPAS <br>
-            <div class="agenda-name">Mata Pelajaran: <br> -Dasar Komputer Jaringan <br> -Bahasa Indonesia <br> -Matematika <br> -Agama <br> -->
-            </div>
+          <div class="agenda-name" id="current-pelajaran"></div>
         </li>
         <li class="agenda-item">
-            <!--<div class="agenda-name">Piket:<br> -Cheriel <br> -Sultan <br> -Revaldo <br> -Muiz <br> -Iqbal <br> -Baihaki <br> -Samuel 
-            <div class="agenda-name">Piket:<br> -Aurel <br> -Ibnu <br> -Dwi <br> -Asrul <br> -Galang <br> -Junior-->
-            <div class="agenda-name">Piket:<br> -Seha <br> -Regan <br> -Nakif <br> -Adnan <br> -Galuh <br> -Ari
-            <!--<div class="agenda-name">Piket:<br> -Riany <br> -Syahdan <br> -Dimas <br> -Priyatno <br> -Reyzal <br> -Raka
-            <div class="agenda-name">Piket:<br> -Hikmah <br> -Yusup <br> -Rizky <br> -Danny <br> -Teguh <br> -Reifan
-            <div class="agenda-name">Piket:<br> -Zahra <br> -Iqdhal <br> -Andika <br> -Ardhan <br> -Iqbal-->
-            </div>
+          <div class="agenda-name" id="current-piket"></div>
         </li>
         <li class="agenda-item">
             <div class="agenda-name">Pr:<br> -Tidak Ada </div>
@@ -157,12 +145,12 @@
             <a href="detailpr/index.html" style="text-decoration:none;">Klik Aku</a></div>
         </li>
         <li class="agenda-item">
-            <div class="agenda-name">Kegiatan: <br> -Belajar <br> -Olahraga
+            <div class="agenda-name">Kegiatan: <br> -Belajar <br>
             </div>
         </li>
     </ul>
-    <div class="agenda-time">Tanggal: Rabu 16 Oktober 2024</div>
 </div>
+<!-- agenda sampai sini -->
 
 <br>
 <button onclick="myFunction('Demo4')" class="w3-button w3-block w3-white-l1 w3-left-align"><i class=""></i><center> Jadwal Pembiasaan</center></button>
@@ -255,6 +243,91 @@ var today = new Date();
   document.getElementById("minutes").innerHTML = today.getMinutes();
   document.getElementById("seconds").innerHTML = today.getSeconds();
   document.getElementById("ms").innerHTML = today.getMilliseconds();
+
+// Fungsi untuk menampilkan tanggal dan hari saat ini
+function displayDateTime() {
+    const now = new Date();
+
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const currentDate = now.toLocaleDateString('id-ID', options);
+    
+    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const currentDay = days[now.getDay()];
+
+    document.getElementById("current-hariini").innerText = `Hari Ini : ${currentDay} ${currentDate}`;
+}
+
+// Panggil fungsi saat halaman dimuat
+window.onload = displayDateTime;
+
+// Fungsi untuk menampilkan tanggal dan hari besok
+function deteksiHariBesok() {
+            const hariIni = new Date();
+            const besok = new Date(hariIni);
+            besok.setDate(hariIni.getDate() + 1);
+
+            const hariArray = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            const bulanArray = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", 
+                                "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+            const hariBesok = hariArray[besok.getDay()];
+            const tanggal = besok.getDate();
+            const bulan = bulanArray[besok.getMonth()]; // Menggunakan nama bulan
+            const tahun = besok.getFullYear();
+
+            document.getElementById("current-haribesok").innerText = `Besok : ${hariBesok} ${tanggal} ${bulan} ${tahun}`;
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        deteksiHariBesok();
+        
+// Fungsi untuk menampilkan Pelajaran
+const pelajaran = {
+            Senin: "Mata Pelajaran: <br> -Informatika <br> -Matematika",
+            Selasa: "Mata Pelajaran: <br> -Bahasa Inggris <br> -Dasar Komputer Jaringan <br> -Seni Budaya <br> -Bahasa Indonesia",
+            Rabu: "Mata Pelajaran: <br> -Sejarah <br> -Penjas <br> -Bisnis Teknik Informasi",
+            Kamis: "Mata Pelajaran: <br> -K3LH <br> -Teknik Jaringan Komputer <br> -Bahasa Inggris <br> -Seni Budaya",
+            Jumat: "Mata Pelajaran: <br> -PPKN <br> -Teknik Jaringan Komputer <br> -IPAS",
+            Sabtu: "Mata Pelajaran: <br> -Dasar Komputer Jaringan <br> -Bahasa Indonesia <br> -Matematika <br> -Agama",
+            Minggu: "Libur"
+        };
+
+        const hari1 = new Date().toLocaleString('id-ID', { weekday: 'long' });
+        const pelajaranHari = pelajaran[hari1] || "Hari tidak dikenal.";
+
+        document.getElementById('current-pelajaran').innerHTML = `<div class="hari1">${pelajaranHari}</div>`;
+       
+// Fungsi untuk menampilkan Piket 
+const piket = {
+            Senin: "Piket:<br> -Cheriel <br> -Sultan <br> -Revaldo <br> -Muiz <br> -Iqbal <br> -Baihaki <br> -Samuel",
+            Selasa: "Piket:<br> -Aurel <br> -Ibnu <br> -Dwi <br> -Asrul <br> -Galang <br> -Junior",
+            Rabu: "Piket:<br> -Seha <br> -Regan <br> -Nakif <br> -Adnan <br> -Galuh <br> -Ari",
+            Kamis: "Piket:<br> -Riany <br> -Syahdan <br> -Dimas <br> -Priyatno <br> -Reyzal <br> -Raka",
+            Jumat: "Piket:<br> -Hikmah <br> -Yusup <br> -Rizky <br> -Danny <br> -Teguh <br> -Reifan",
+            Sabtu: "Piket:<br> -Zahra <br> -Iqdhal <br> -Andika <br> -Ardhan <br> -Iqbal",
+            Minggu: "Libur"
+        };
+
+        const hari2 = new Date().toLocaleString('id-ID', { weekday: 'long' });
+        const piketHari = piket[hari2] || "Harii tidak dikenal.";
+
+        document.getElementById('current-piket').innerHTML = `<div class="hari2">${piketHari}</div>`;
+        
+// Fungsi untuk menampilkan Seragam
+const seragam = {
+            Senin: "Seragam:<br> -Baju Putih <br> -Celana/Rok Putih <br> -Kaos Kaki Putih <br> -Sepatu Putih",
+            Selasa: "Seragam:<br> -Baju Putih <br> -Celana/Rok Abu Abu <br> -Kaos Kaki Putih <br> -Sepatu Hitam",
+            Rabu: "Seragam:<br> -Baju Pramuka <br> -Celana/Rok Pramuka <br> -Kaos Kaki Coklat <br> -Sepatu Hitam",
+            Kamis: "Seragam:<br> -Baju Batik Smart <br> -Celana/Rok Putih <br> -Kaos Kaki Putih <br> -Sepatu Putih",
+            Jumat: "Seragam:<br> -Baju Batik Smart <br> -Celana/Rok Putih <br> -Kaos Kaki Putih <br> -Sepatu Putih",
+            Sabtu: "Seragam:<br> -Baju Putih <br> -Celana Abu Abu <br> -Kaos Kaki Putih <br> -Sepatu Hitam",
+            Minggu: "Libur"
+        };
+
+        const hari3 = new Date().toLocaleString('id-ID', { weekday: 'long' });
+        const seragamHari = seragam[hari3] || "Hari tidak dikenal.";
+
+        document.getElementById('current-seragam').innerHTML = `<div class="hari3">${seragamHari}</div>`;
 </script>
 
 </body>
