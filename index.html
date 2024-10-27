@@ -283,53 +283,53 @@ function deteksiHariBesok() {
         // Panggil fungsi saat halaman dimuat
         deteksiHariBesok();
         
-// Fungsi untuk menampilkan Pelajaran
-const pelajaran = {
-            Senin: "Mata Pelajaran: <br> -Informatika <br> -Matematika",
-            Selasa: "Mata Pelajaran: <br> -Bahasa Inggris <br> -Dasar Komputer Jaringan <br> -Seni Budaya <br> -Bahasa Indonesia",
-            Rabu: "Mata Pelajaran: <br> -Sejarah <br> -Penjas <br> -Bisnis Teknik Informasi",
-            Kamis: "Mata Pelajaran: <br> -K3LH <br> -Teknik Jaringan Komputer <br> -Bahasa Inggris <br> -Seni Budaya",
-            Jumat: "Mata Pelajaran: <br> -PPKN <br> -Teknik Jaringan Komputer <br> -IPAS",
-            Sabtu: "Mata Pelajaran: <br> -Dasar Komputer Jaringan <br> -Bahasa Indonesia <br> -Matematika <br> -Agama",
-            Minggu: "Libur"
-        };
+// Fungsi untuk menampilkan seragam besok
+function deteksiBesokSeragam() {
+            const hariIni = new Date();
+            const besok = new Date(hariIni);
+            besok.setDate(hariIni.getDate() + 1);
 
-        const hari1 = new Date().toLocaleString('id-ID', { weekday: 'long' });
-        const pelajaranHari = pelajaran[hari1] || "Hari tidak dikenal.";
+            const SerogomArray = ["Seragam: -Tidak Ada", "Seragam:\n -Baju Putih \n -Celana/Rok Putih \n -Kaos Kaki Putih \n -Sepatu Putih", "Seragam:\n -Baju Putih \n -Celana/Rok Abu Abu \n -Kaos Kaki Putih \n -Sepatu Hitam", "Seragam:\n -Baju Pramuka \n -Celana/Rok Pramuka \n -Kaos Kaki Coklat \n -Sepatu Hitam", "Seragam:\n -Baju Batik Smart \n -Celana/Rok Putih \n -Kaos Kaki Putih \n -Sepatu Putih", "Seragam:\n -Baju Batik Smart \n -Celana/Rok Putih \n -Kaos Kaki Putih \n -Sepatu Putih", "Seragam:\n -Baju Putih \n -Celana Abu Abu \n -Kaos Kaki Putih \n -Sepatu Hitam"];
 
-        document.getElementById('current-pelajaran').innerHTML = `<div class="hari1">${pelajaranHari}</div>`;
-       
-// Fungsi untuk menampilkan Piket 
-const piket = {
-            Senin: "Piket:<br> -Cheriel <br> -Sultan <br> -Revaldo <br> -Muiz <br> -Iqbal <br> -Baihaki <br> -Samuel",
-            Selasa: "Piket:<br> -Aurel <br> -Ibnu <br> -Dwi <br> -Asrul <br> -Galang <br> -Junior",
-            Rabu: "Piket:<br> -Seha <br> -Regan <br> -Nakif <br> -Adnan <br> -Galuh <br> -Ari",
-            Kamis: "Piket:<br> -Riany <br> -Syahdan <br> -Dimas <br> -Priyatno <br> -Reyzal <br> -Raka",
-            Jumat: "Piket:<br> -Hikmah <br> -Yusup <br> -Rizky <br> -Danny <br> -Teguh <br> -Reifan",
-            Sabtu: "Piket:<br> -Zahra <br> -Iqdhal <br> -Andika <br> -Ardhan <br> -Iqbal",
-            Minggu: "Libur"
-        };
+            const BesokSeragam = SerogomArray[besok.getDay()];
 
-        const hari2 = new Date().toLocaleString('id-ID', { weekday: 'long' });
-        const piketHari = piket[hari2] || "Harii tidak dikenal.";
+            document.getElementById("current-seragam").innerText = `${BesokSeragam}`;
+        }
 
-        document.getElementById('current-piket').innerHTML = `<div class="hari2">${piketHari}</div>`;
+        // Panggil fungsi saat halaman dimuat
+        deteksiBesokSeragam();
         
-// Fungsi untuk menampilkan Seragam
-const seragam = {
-            Senin: "Seragam:<br> -Baju Putih <br> -Celana/Rok Putih <br> -Kaos Kaki Putih <br> -Sepatu Putih",
-            Selasa: "Seragam:<br> -Baju Putih <br> -Celana/Rok Abu Abu <br> -Kaos Kaki Putih <br> -Sepatu Hitam",
-            Rabu: "Seragam:<br> -Baju Pramuka <br> -Celana/Rok Pramuka <br> -Kaos Kaki Coklat <br> -Sepatu Hitam",
-            Kamis: "Seragam:<br> -Baju Batik Smart <br> -Celana/Rok Putih <br> -Kaos Kaki Putih <br> -Sepatu Putih",
-            Jumat: "Seragam:<br> -Baju Batik Smart <br> -Celana/Rok Putih <br> -Kaos Kaki Putih <br> -Sepatu Putih",
-            Sabtu: "Seragam:<br> -Baju Putih <br> -Celana Abu Abu <br> -Kaos Kaki Putih <br> -Sepatu Hitam",
-            Minggu: "Libur"
-        };
+// Fungsi untuk menampilkan pelajaran besok
+function deteksiBesokPelajaran() {
+            const hariIni = new Date();
+            const besok = new Date(hariIni);
+            besok.setDate(hariIni.getDate() + 1);
 
-        const hari3 = new Date().toLocaleString('id-ID', { weekday: 'long' });
-        const seragamHari = seragam[hari3] || "Hari tidak dikenal.";
+            const PelojoronArray = ["Mata Pelajaran: \n -Tidak Ada", "Mata Pelajaran: \n -Informatika \n -Matematika", "Mata Pelajaran: \n -Bahasa Inggris \n -Dasar Komputer Jaringan \n -Seni Budaya \n -Bahasa Indonesia", "Mata Pelajaran: \n -Sejarah \n -Penjas \n -Bisnis Teknik Informasi", "Mata Pelajaran: \n -K3LH \n -Teknik Jaringan Komputer \n -Bahasa Inggris \n -Seni Budaya", "Mata Pelajaran: \n -PPKN \n -Teknik Jaringan Komputer \n -IPAS", "Mata Pelajaran: \n -Dasar Komputer Jaringan \n -Bahasa Indonesia \n -Matematika \n -Agama"];
 
-        document.getElementById('current-seragam').innerHTML = `<div class="hari3">${seragamHari}</div>`;
+            const BesokPelajaran = PelojoronArray[besok.getDay()];
+
+            document.getElementById("current-pelajaran").innerText = `${BesokPelajaran}`;
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        deteksiBesokPelajaran();
+        
+// Fungsi untuk menampilkan piket besok
+function deteksiBesokPiket() {
+            const hariIni = new Date();
+            const besok = new Date(hariIni);
+            besok.setDate(hariIni.getDate() + 1);
+
+            const PikotArray = ["Piket:\n -Tidak Ada", "Piket:\n -Cheriel \n -Sultan \n -Revaldo \n -Muiz \n -Iqbal \n -Baihaki \n -Samuel", "Piket:\n -Aurel \n -Ibnu \n -Dwi \n -Asrul \n -Galang \n -Junior", "Piket:\n -Seha \n -Regan \n -Nakif \n -Adnan \n -Galuh \n -Ari", "Piket:\n -Riany \n -Syahdan \n -Dimas \n -Priyatno \n -Reyzal \n -Raka", "Piket:\n -Hikmah \n -Yusup \n -Rizky \n -Danny \n -Teguh \n -Reifan", "Piket:\n -Zahra \n -Iqdhal \n -Andika \n -Ardhan \n -Iqbal"];
+
+            const BesokPiket = PikotArray[besok.getDay()];
+
+            document.getElementById("current-piket").innerText = `${BesokPiket}`;
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        deteksiBesokPiket();
 </script>
 
 </body>
