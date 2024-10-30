@@ -1,0 +1,49 @@
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .header {
+            background-image: url('../imgsekelas.jpg');
+            width: 360px;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+            position: relative;
+        }
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+            color: #000;
+        }
+        .header h2 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .header .underline {
+            width: 100px;
+            height: 5px;
+            background-color: #f99;
+            margin: 20px auto 0;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .menu a {
+            display: block;
+            width: 150px;
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: #6b5b3e;
+            border: 2px solid #6b5b3e;
+            border-radius: 5px;
+            font-size: 18px;
+        }
