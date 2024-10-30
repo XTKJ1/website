@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website X TKJ 1</title>
+    <meta name="description" content="Website Galery Kelas X TKJ 1. Kita Dari SMK 11 MARET JAKARTA">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #e1e9ee);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .gallery-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            max-width: 90%;
+        }
+
+        .gallery {
+            display: inline-block;
+        }
+
+        .gallery img {
+            height: 200px; /* Set height as needed */
+            margin-right: 15px; /* Space between images */
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Custom scrollbar styles */
+        .gallery-container::-webkit-scrollbar {
+            height: 12px;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Optional: Add a fade-in effect on load */
+        .gallery img {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery">
+            <img src="image1.jpg" alt="Image 1">
+            <img src="image2.jpg" alt="Image 2">
+            <img src="image3.jpg" alt="Image 3">
+            <img src="image4.jpg" alt="Image 4">
+            <img src="image5.jpg" alt="Image 5">
+        </div>
+    </div>
+</body>
+</html>
