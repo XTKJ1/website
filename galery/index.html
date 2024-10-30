@@ -1,88 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website X TKJ 1</title>
     <meta name="description" content="Website Galery Kelas X TKJ 1. Kita Dari SMK 11 MARET JAKARTA">
     <link rel="icon" type="image/x-icon" href="https://malasid.github.io/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f0f4f8, #e1e9ee);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .gallery-container {
-            overflow-x: auto;
-            white-space: nowrap;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-            max-width: 90%;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
         }
 
-        .gallery {
-            display: inline-block;
-        }
-
-        .gallery img {
-            height: 200px; /* Set height as needed */
-            margin-right: 15px; /* Space between images */
+        .galery {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+            border: 2px solid #ddd;
             border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 3px solid #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
         }
 
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        .galery::-webkit-scrollbar {
+            height: 10px;
         }
 
-        /* Custom scrollbar styles */
-        .gallery-container::-webkit-scrollbar {
-            height: 12px;
-        }
-
-        .gallery-container::-webkit-scrollbar-thumb {
+        .galery::-webkit-scrollbar-thumb {
             background: #888;
-            border-radius: 10px;
+            border-radius: 5px;
         }
 
-        .gallery-container::-webkit-scrollbar-thumb:hover {
+        .galery::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
 
-        /* Optional: Add a fade-in effect on load */
-        .gallery img {
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
+        .galery-item {
+            flex: 0 0 auto;
+            margin-right: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center; /* Center the text */
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .galery-item img {
+            display: block;
+            width: 200px; /* Fixed width */
+            height: 150px; /* Fixed height */
+            object-fit: cover; /* Maintain aspect ratio */
+            border-radius: 5px;
+            cursor: pointer; /* Show pointer on hover */
+        }
+
+        .caption {
+            margin: 5px 0; /* Space between caption and image */
+            font-size: 14px; /* Caption font size */
+            color: #333; /* Caption color */
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="gallery-container">
-      <h3 style="text-align: center;">Siswi Siswi & Pak Apian</h3>
-        <div class="gallery">
-            <img src="cewecewe1.jpg" alt="Image 1">
-            <img src="cewecewe2.jpg" alt="Image 2">
-            <img src="cewecewe3.jpg" alt="Image 3">
-            <img src="cewecewe4.jpg" alt="Image 4">
-            <img src="cewecewe5.jpg" alt="Image 5">
+    <div class="galery">
+        <div class="galery-item">
+            <p class="caption">Siswi Siswi & Pak Apian</p>
+            <img src="cewecewe1.jpg" alt="Image 1" onclick="openModal('cewecewe1.jpg')">
+        </div>
+        <div class="galery-item">
+            <p class="caption">Siswi Siswi & Pak Apian</p>
+            <img src="cewecewe2.jpg" alt="Image 2" onclick="openModal('cewecewe2.jpg')">
+        </div>
+        <div class="galery-item">
+            <p class="caption">Siswi Siswi & Pak Apian</p>
+            <img src="cewecewe3.jpg" alt="Image 3" onclick="openModal('cewecewe3.jpg')">
+        </div>
+        <div class="galery-item">
+            <p class="caption">Siswi Siswi & Pak Apian</p>
+            <img src="cewecewe4.jpg" alt="Image 4" onclick="openModal('cewecewe4.jpg')">
+        </div>
+        <div class="galery-item">
+            <p class="caption">Siswi Siswi & Pak Apian</p>
+            <img src="cewecewe5.jpg" alt="Image 5" onclick="openModal('cewecewe5.jpg')">
         </div>
     </div>
+
+    <div class="modal" id="modal" onclick="closeModal()">
+        <img id="modal-image" src="" alt="Full Size Image">
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modal-image').src = imageSrc;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
