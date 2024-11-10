@@ -3,6 +3,7 @@
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
+            overflow: hidden;
         }
         .header {
             background-image: url('../imgsekelas.jpg');
@@ -46,4 +47,58 @@
             border: 2px solid #6b5b3e;
             border-radius: 5px;
             font-size: 18px;
+        }
+        
+        .navbar {
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+        
+        .navbar-item {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-item:hover {
+            background-color: #2980b9;
+            border-radius: 5px;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            position: relative;
+            display: none;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            animation: move 1s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(-100px) scale(1);
+            }
+            50% {
+                transform: translateX(calc(100vw + 100px)) scale(1.2);
+                background-color: #2ecc71;
+            }
+            100% {
+                transform: translateX(-100px) scale(1);
+                background-color: #3498db;
+            }
+        }
+
+        .contentloader {
+            text-align: center;
         }
