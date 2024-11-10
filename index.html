@@ -24,21 +24,68 @@
   </div>
   </center>
   <div class="menu">
-   <a href="agenda/">
-    Agenda
-   </a>
-   <a href="https://instagram.com/apian.candra">
-    Walas
-   </a>
-   <a href="list/">
-    Siswa
-   </a>
-   <a href="galery/">
-    Galery
-   </a>
+  <div class="contentloader">
+  <div id="loader" class="loader"></div>
+    <a href="agenda/" id="loadPage1">
+      Agenda
+    </a>
+    <div id="loader1" class="loader"></div>
+    <a href="https://instagram.com/apian.candra" id="loadPage4">
+      Walas
+    </a>
+    <div id="loader" class="loader"></div>
+    <a href="list/" id="loadPage2">
+      Siswa
+    </a>
+    <div id="loader" class="loader"></div>
+    <a href="galery/" id="loadPage3">
+      Galery
+    </a>
   </div>
-<center>
-<img src="jadwalpembiasaan.jpg" alt="jadwal" width="320px">
-</center>
+</div>
+    <div class="navbar">
+        <div class="navbar-item" onclick="alert('Kita BerEmpat Akan Meneruskan Dan Memperbagus Website Kelas Kita')">©Copyright 2024 - Nakif/Nan/Danny/Regan</div>
+    </div>
+<script>
+        document.getElementById('loadPage1').addEventListener('click', function(event) {
+            event.preventDefault();
+            const loader = document.getElementById('loader');
+            loader.style.display = 'block';
+
+            setTimeout(() => {
+                window.location.href = event.target.href;
+            }, 2000); // Durasi loading 2 detik
+        });
+        
+        document.getElementById('loadPage2').addEventListener('click', function(event) {
+            event.preventDefault();
+            const loader = document.getElementById('loader');
+            loader.style.display = 'block';
+
+            setTimeout(() => {
+                window.location.href = event.target.href;
+            }, 1000); // Durasi loading 1 detik
+        });
+        
+        document.getElementById('loadPage3').addEventListener('click', function(event) {
+            event.preventDefault();
+            const loader = document.getElementById('loader');
+            loader.style.display = 'block';
+
+            setTimeout(() => {
+                window.location.href = event.target.href;
+            }, 2000); // Durasi loading 2 detik
+        });
+        
+        document.getElementById('loadPage4').addEventListener('click', function(event) {
+            event.preventDefault();
+            const loader = document.getElementById('loader');
+            loader.style.display = 'block';
+
+            setTimeout(() => {
+                window.location.href = event.target.href;
+            }, 3000); // Durasi loading 3 detik
+        });
+</script>
 </body>
 </html>
