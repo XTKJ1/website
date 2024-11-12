@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jadwal Piket Sekolah/Kerja</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f1f1f1;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1>Semua Jadwal Piket</h1>
+        <table id="jadwalPiket">
+                <tr>
+                    <th>Hari</th>
+                    <th>Nama</th>
+                </tr>
+            <!-- batass -->
+                <tr>
+                    <td>Senin</td>
+                    <td><p>Cheriel<br>Sultan<br>Revaldo<br>Muiz<br>Iqbal<br>Baihaki<br>Samuel</p></td>
+                </tr>
+                <tr>
+                    <td>Selasa</td>
+                    <td><p>Aurel<br>Ibnu<br>Dwi<br>Asrul<br>Galang<br>Junior</p></td>
+                </tr>
+                <tr>
+                    <td>Rabu</td>
+                    <td>Seha<br>Regan<br>Nakif<br>Adnan<br>Galuh<br>Ari</td>
+                </tr>
+                <tr>
+                    <td>Kamis</td>
+                    <td>Riany<br>Syahdan<br>Dimas<br>Priyatno<br>Reyzal<br>Raka</td>
+                </tr>
+                <tr>
+                    <td>Jumat</td>
+                    <td>Hikmah<br>Yusup<br>Rizky<br>Danny<br>Teguh<br>Reifan</td>
+                </tr>
+                <tr>
+                    <td>Sabtu</td>
+                    <td>Zahra<br>Iqdhal<br>Andika<br>Ardhan<br>Iqbal</td>
+                </tr>
+                <tr>
+                    <td>Minggu</td>
+                    <td>Masa Lalu Nya...</td>
+                </tr>
+        </table>
+        <button id="myButton">Kembali Ke Agenda</button>
+    </div>
+
+    <script>
+      document.getElementById("myButton").addEventListener("click", function() {
+            window.location.href = "../agenda"; // Ganti dengan URL tujuan
+        });
+    </script>
+</body>
+</html>
