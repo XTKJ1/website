@@ -1,253 +1,263 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Website Kelas X TKJ 1. Kita Dari SMK 11 MARET JAKARTA">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website X TKJ 1</title>
     <link rel="icon" href="https://malasid.github.io/favicon.png" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
     <style>
-        /* Reset default browser styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      body {
+        background: linear-gradient(135deg, rgba(128, 0, 128, 1) 0%, rgba(255, 0, 255, 1) 100%);
+        font-family: 'Arial', sans-serif;
+        margin-bottom: 60px; /* Make space for the fixed navbar at the bottom */
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-        }
+      .greeting {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #fff;
+        font-weight: bold;
+        margin-top: 50px;
+      }
 
-        /* Header dengan background image */
-        .header {
-            background-image: url('imgsekelas.jpg'); /* Ganti dengan URL gambar Anda */
-            background-size: cover; /* Menyesuaikan ukuran gambar dengan ukuran header */
-            background-position: center; /* Menjaga gambar tetap terpusat */
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            height: 300px; /* Atur tinggi sesuai keinginan */
-        }
-        
-        .header-logo {
-          width: 100px; /* Sesuaikan dengan ukuran gambar */
-          height: auto;
-          margin-bottom: 10px;
-        }
+      .login-container {
+        max-width: 450px;
+        margin: 40px auto;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
 
-        .header h1 {
-            color: lightgrey;
-            font-size: 3em;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Memberikan bayangan pada teks agar lebih terbaca */
+      .login-container h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      .form-control {
+        border-radius: 50px;
+        padding: 15px;
+        font-size: 1.1rem;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .form-control:focus {
+        box-shadow: 0 0 10px rgba(128, 0, 128, 1);
+        border-color: #800080;
+        outline: none;
+      }
+
+      .btn-primary {
+        border-radius: 50px;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        background-color: #800080;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #6a006a;
+      }
+
+      .status-message {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      .status-message.success {
+        color: #800080;
+      }
+
+      .status-message.error {
+        color: red;
+      }
+
+      .form-group {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .form-group i {
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        font-size: 1.2rem;
+        color: #bbb;
+      }
+
+      .form-control.input-icon {
+        padding-left: 35px;
+      }
+
+      /* Glow animation */
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 5px #800080;
         }
-
-        .header h2 {
-            font-size: 1.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        50% {
+          box-shadow: 0 0 20px #800080;
         }
-
-        /* Menu, tombol dan lainnya tetap seperti sebelumnya */
-        .menu {
-            text-align: center;
+        100% {
+          box-shadow: 0 0 5px #800080;
         }
+      }
 
-        .menu a {
-            display: inline-block;
-            background: linear-gradient(135deg, #8e44ad, #3498db);
-            color: white;
-            padding: 15px 30px;
-            margin: 10px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease;
-        }
+      .form-control:focus {
+        animation: glow 1s ease-in-out infinite;
+      }
 
-        .menu a:hover {
-            background: linear-gradient(135deg, #3498db, #8e44ad);
-        }
+      /* Bottom Navbar */
+      .navbar-bottom {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(128, 0, 128, 1) 0%, rgba(255, 0, 255, 1) 100%);
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        color: white;
+        font-weight: bold;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        animation: glow 1s ease-in-out infinite;
+      }
 
-        /* Loader Styles */
-        .loader-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
+      .navbar-bottom a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
 
-        /* Spinning Circle */
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #2196F3;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Dot Pulse Loader */
-        .dot-loader {
-            display: inline-block;
-            position: relative;
-            width: 60px;
-            height: 20px;
-        }
-
-        .dot-loader div {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #2196F3;
-            animation: dotPulse 1.2s infinite ease-in-out;
-        }
-
-        .dot-loader div:nth-child(1) {
-            left: 0;
-            animation-delay: 0s;
-        }
-
-        .dot-loader div:nth-child(2) {
-            left: 20px;
-            animation-delay: 0.2s;
-        }
-
-        .dot-loader div:nth-child(3) {
-            left: 40px;
-            animation-delay: 0.4s;
-        }
-
-        @keyframes dotPulse {
-            0%, 100% {
-                transform: scale(0);
-            }
-            50% {
-                transform: scale(1);
-            }
-        }
-
-        .navbar {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #333;
-            text-align: center;
-            padding: 10px 0;
-            color: white;
-        }
-
-        .navbar-item {
-            font-size: 0.9em;
-        }
-
-        /* Media Queries for responsiveness */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5em;
-            }
-
-            .header h2 {
-                font-size: 1.2em;
-            }
-
-            .menu a {
-                font-size: 1em;
-                padding: 12px 25px;
-            }
-        }
+      .navbar-bottom a:hover {
+        color: #800080;
+      }
     </style>
-</head>
-<body>
-    <div class="header">
-        <h1>X TKJ 1</h1>
-        <h2>SMK 11 MARET</h2>
+  </head>
+  <body>
+    <div class="greeting">
+      <p>Welcome To Website X TKJ 1</p>
+      <p>Sebelum Masuk Website, Terlebih Dahulu Username Dan Password Mu</p>
     </div>
 
-    <div class="menu">
-            <a href="agenda/" id="loadPage1">
-                Agenda
-                <div class="loader-wrapper" id="loaderWrapper1">
-                    <div class="dot-loader">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-            </a>
-            <a href="https://instagram.com/apian.candra" id="loadPage4">
-                Walas
-                <div class="loader-wrapper" id="loaderWrapper4">
-                    <div class="dot-loader">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-            </a>
-            <a href="list/" id="loadPage2">
-                Siswa
-                <div class="loader-wrapper" id="loaderWrapper2">
-                    <div class="dot-loader">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-            </a>
-            <a href="galery/" id="loadPage3">
-                Galery
-                <div class="loader-wrapper" id="loaderWrapper3">
-                    <div class="dot-loader">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-            </a>
-        </div>
+    <div class="container">
+      <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <i class="fas fa-user"></i>
+            <input
+              type="text"
+              id="username"
+              class="form-control input-icon"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              class="form-control input-icon"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="login()"
+          >
+            Login
+          </button>
+          <p id="statusMessage" class="status-message mt-3"></p>
+        </form>
+      </div>
     </div>
 
-    <div class="navbar">
-        <div class="navbar-item" onclick="alert('Kita BerEmpat Akan Meneruskan Dan Memperbagus Website Kelas Kita')">
-            ©Copyright 2024 - Nakif/Nan/Danny/Regan
-        </div>
+    <!-- Bottom Navbar -->
+    <div class="navbar-bottom">
+      <a href="#">©Copyright Siswa X TKJ 1<br>SMK 11 MARET</a>
     </div>
 
     <script>
-        function addLoaderEvent(pageId, loaderWrapperId, duration) {
-            document.getElementById(pageId).addEventListener('click', function(event) {
-                event.preventDefault();
-                const loaderWrapper = document.getElementById(loaderWrapperId);
-                loaderWrapper.style.display = 'flex';  // Show the loader
+      // Data User - All passwords are set to '123'
+      const users = {
+        andika: "123",
+        ari: "123",
+        aurel: "123",
+        cheriel: "123",
+        danny: "123",
+        dimas: "123",
+        fazri: "123",
+        galuh: "123",
+        hikmah: "123",
+        ibnu: "123",
+        iqbal: "123",
+        iqhdal: "123",
+        junior: "123",
+        marchel: "123",
+        asrul: "123",
+        ardhan: "123",
+        rizky: "123",
+        muiz: "123",
+        hitam: "123",
+        priyatno: "123",
+        raka: "123",
+        reganganteng: "123",
+        reifan: "123",
+        reyzhal: "123",
+        lonte: "123",
+        risky: "123",
+        samuel: "123",
+        sarviola: "123",
+        seha: "123",
+        sulthan: "123",
+        syahdan: "123",
+        teguh: "123",
+        tofa: "123",
+        lele: "123",
+        zahra: "123"
+      };
 
-                setTimeout(() => {
-                    window.location.href = event.target.href;
-                }, duration); 
-            });
+      // Fungsi Login
+      function login() {
+        const usernameInput = document.getElementById("username").value;
+        const passwordInput = document.getElementById("password").value;
+        const statusMessage = document.getElementById("statusMessage");
+
+        // Cek apakah username dan password valid
+        if (users[usernameInput] && users[usernameInput] === passwordInput) {
+          statusMessage.className = "status-message success";
+          statusMessage.textContent =
+            "Login berhasil! Mengarahkan ke halaman...";
+
+          // Mengarahkan pengguna ke URL tujuan setelah 1 detik
+          setTimeout(() => {
+            window.location.href = "utama.html"; // Ganti URL dengan URL website Anda
+          }, 900);
+        } else if (!users[usernameInput]) {
+          statusMessage.className = "status-message error";
+          statusMessage.textContent = "Username tidak ditemukan. Silakan coba lagi.";
+        } else {
+          statusMessage.className = "status-message error";
+
+          statusMessage.textContent = "Password salah. Silakan coba lagi.";
         }
-
-        // Add event listeners for each link
-        addLoaderEvent('loadPage1', 'loaderWrapper1', 2000); // Agenda
-        addLoaderEvent('loadPage2', 'loaderWrapper2', 1000); // Siswa
-        addLoaderEvent('loadPage3', 'loaderWrapper3', 2000); // Galery
-        addLoaderEvent('loadPage4', 'loaderWrapper4', 3000); // Walas
+      }
     </script>
-</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

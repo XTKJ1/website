@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website Kelas X TKJ 1. Kita Dari SMK 11 MARET JAKARTA">
+    <title>Website X TKJ 1</title>
+    <link rel="icon" href="https://malasid.github.io/favicon.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header dengan background image */
+        .header {
+            background-image: url('imgsekelas.jpg'); /* Ganti dengan URL gambar Anda */
+            background-size: cover; /* Menyesuaikan ukuran gambar dengan ukuran header */
+            background-position: center; /* Menjaga gambar tetap terpusat */
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            height: 300px; /* Atur tinggi sesuai keinginan */
+        }
+        
+        .header-logo {
+          width: 100px; /* Sesuaikan dengan ukuran gambar */
+          height: auto;
+          margin-bottom: 10px;
+        }
+
+        .header h1 {
+            color: lightgrey;
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Memberikan bayangan pada teks agar lebih terbaca */
+        }
+
+        .header h2 {
+            font-size: 1.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Menu, tombol dan lainnya tetap seperti sebelumnya */
+        .menu {
+            text-align: center;
+        }
+
+        .menu a {
+            display: inline-block;
+            background: linear-gradient(135deg, #8e44ad, #3498db);
+            color: white;
+            padding: 15px 30px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+        }
+
+        /* Loader Styles */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Spinning Circle */
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #2196F3;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Dot Pulse Loader */
+        .dot-loader {
+            display: inline-block;
+            position: relative;
+            width: 60px;
+            height: 20px;
+        }
+
+        .dot-loader div {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2196F3;
+            animation: dotPulse 1.2s infinite ease-in-out;
+        }
+
+        .dot-loader div:nth-child(1) {
+            left: 0;
+            animation-delay: 0s;
+        }
+
+        .dot-loader div:nth-child(2) {
+            left: 20px;
+            animation-delay: 0.2s;
+        }
+
+        .dot-loader div:nth-child(3) {
+            left: 40px;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+            color: white;
+        }
+
+        .navbar-item {
+            font-size: 0.9em;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .header h2 {
+                font-size: 1.2em;
+            }
+
+            .menu a {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>X TKJ 1</h1>
+        <h2>SMK 11 MARET</h2>
+    </div>
+
+    <div class="menu">
+            <a href="agenda/" id="loadPage1">
+                Agenda
+                <div class="loader-wrapper" id="loaderWrapper1">
+                    <div class="dot-loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://instagram.com/apian.candra" id="loadPage4">
+                Walas
+                <div class="loader-wrapper" id="loaderWrapper4">
+                    <div class="dot-loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </a>
+            <a href="list/" id="loadPage2">
+                Siswa
+                <div class="loader-wrapper" id="loaderWrapper2">
+                    <div class="dot-loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </a>
+            <a href="galery/" id="loadPage3">
+                Galery
+                <div class="loader-wrapper" id="loaderWrapper3">
+                    <div class="dot-loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <div class="navbar-item" onclick="alert('Kita BerEmpat Akan Meneruskan Dan Memperbagus Website Kelas Kita')">
+            ©Copyright 2024 - Nakif/Nan/Danny/Regan
+        </div>
+    </div>
+
+    <script>
+        function addLoaderEvent(pageId, loaderWrapperId, duration) {
+            document.getElementById(pageId).addEventListener('click', function(event) {
+                event.preventDefault();
+                const loaderWrapper = document.getElementById(loaderWrapperId);
+                loaderWrapper.style.display = 'flex';  // Show the loader
+
+                setTimeout(() => {
+                    window.location.href = event.target.href;
+                }, duration); 
+            });
+        }
+
+        // Add event listeners for each link
+        addLoaderEvent('loadPage1', 'loaderWrapper1', 2000); // Agenda
+        addLoaderEvent('loadPage2', 'loaderWrapper2', 1000); // Siswa
+        addLoaderEvent('loadPage3', 'loaderWrapper3', 2000); // Galery
+        addLoaderEvent('loadPage4', 'loaderWrapper4', 3000); // Walas
+    </script>
+</body>
+</html>
