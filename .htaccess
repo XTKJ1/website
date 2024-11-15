@@ -13,3 +13,9 @@ RewriteCond %{REQUEST_FILENAME}\.html -f
 # Here we actually show the page that has the .html extension
 
 RewriteRule ^(.*)$ $1.html [NC,L]
+
+# 404 Not Found
+
+ErrorDocument 403 "Forbidden. Directory listing has been disabled."
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
