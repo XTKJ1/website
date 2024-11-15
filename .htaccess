@@ -1,0 +1,15 @@
+# Aktifkan mod_rewrite untuk mengaktifkan URL yang ramah SEO
+RewriteEngine On
+
+# Tentukan root directory untuk mod_rewrite
+RewriteBase /
+
+# Redirect HTTP ke HTTPS (jika menggunakan SSL)
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ErrorDocument untuk mengarahkan ke halaman kustom saat error 404
+ErrorDocument 404 /404.html
+
+# Mengarahkan pengunjung yang mengakses halaman yang hilang ke homepage
+# ErrorDocument 404 /index.php
