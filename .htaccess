@@ -6,7 +6,7 @@ RewriteBase /
 
 # Redirect HTTP ke HTTPS (jika menggunakan SSL)
 RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://xtkj.my.id [L,R=301]
 
 # ErrorDocument untuk mengarahkan ke halaman kustom saat error 404
 ErrorDocument 404 /404.html
