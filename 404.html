@@ -1,1 +1,91 @@
-not found
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404 Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #2e003e; /* Ungu gelap */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        .error-message h1 {
+            font-size: 120px;
+            margin: 0;
+            text-shadow: 0 0 20px rgba(255, 0, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.6);
+        }
+
+        .error-message p {
+            font-size: 20px;
+            margin: 20px 0;
+            opacity: 0.7;
+        }
+
+        .back-home {
+            font-size: 18px;
+            text-decoration: none;
+            color: #ff33ff;
+            border: 2px solid #ff33ff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-home:hover {
+            background-color: #ff33ff;
+            color: #2e003e;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 0, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.4), 0 0 30px rgba(255, 0, 255, 0.2);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.6), 0 0 50px rgba(255, 0, 255, 0.4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-message">
+            <h1>404</h1>
+            <p>Oops! Page Not Found</p>
+            <a href="/" class="back-home">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Opsional: Menambahkan efek hover pada tombol kembali ke halaman utama
+        document.querySelector('.back-home').addEventListener('mouseover', function () {
+            this.style.transform = 'scale(1.1)';
+        });
+
+        document.querySelector('.back-home').addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
