@@ -155,7 +155,6 @@
       <p>Welcome To Website X TKJ 1</p>
       <p>Sebelum Masuk Website, Terlebih Dahulu Username Dan Password Mu</p>
     </div>
-
     <div class="container">
       <div class="login-container">
         <h2>Login</h2>
@@ -181,9 +180,8 @@
             />
           </div>
           <button
-            type="button"
+            type="submit"
             class="btn btn-primary"
-            onclick="login()"
           >
             Login
           </button>
@@ -192,7 +190,7 @@
         <hr>
         <div class="hubungi">
           <p>Tidak Tau Username Dan Password? Hubungi</p>
-          </div>
+        </div>
       </div>
     </div>
 
@@ -202,73 +200,76 @@
     </div>
 
     <script>
-      // Data User - All passwords are set to '123'
-      const users = {
-        andika: "123",
-        ari: "123",
-        aurel: "123",
-        cheriel: "123",
-        dannycacat: "123",
-        dimas: "123",
-        fazri: "123",
-        galuh: "123",
-        hikmah: "123",
-        ibnu: "123",
-        iqbal: "123",
-        iqhdal: "123",
-        junior: "123",
-        marchel: "123",
-        asrul: "123",
-        ardhan: "123",
-        rizky: "123",
-        muiz: "123",
-        nakif: "123",
-        priyatno: "123",
-        raka: "123",
-        regan: "123",
-        reifan: "123",
-        reyzhal: "123",
-        riany: "123",
-        risky: "123",
-        samuel: "123",
-        sarviola: "123",
-        seha: "123",
-        sulthan: "123",
-        syahdan: "123",
-        teguh: "123",
-        tofa: "123",
-        yusuf: "123",
-        zahra: "123",
-        // Basic User
-        lele: "123",
-        evillive: "123",
+      // Daftar username dan password yang valid (34 pasangan)
+      const validCredentials = [
+        { username: 'andika', password: 'pass1' },
+        { username: 'ari', password: 'pass2' },
+        { username: 'aurel', password: 'pass3' },
+        { username: 'cheriel', password: 'pass4' },
+        { username: 'danny', password: 'pass5' },
+        { username: 'dimas', password: 'pass6' },
+        { username: 'fazri', password: 'pass7' },
+        { username: 'galuh', password: 'pass8' },
+        { username: 'hikmah', password: 'pass9' },
+        { username: 'ibnu', password: 'pass10' },
+        { username: 'iqbal', password: 'pass11' },
+        { username: 'iqdhal', password: 'pass12' },
+        { username: 'junior', password: 'pass13' },
+        { username: 'marchel', password: 'pass14' },
+        { username: 'asrul', password: 'pass15' },
+        { username: 'ardhan', password: 'pass16' },
+        { username: 'revaldo', password: 'pass17' },
+        { username: 'rizky', password: 'pass18' },
+        { username: 'muiz', password: 'pass19' },
+        { username: 'nakif', password: 'pass20' },
+        { username: 'priyatno', password: 'pass21' },
+        { username: 'raka', password: 'pass22' },
+        { username: 'regan', password: 'pass23' },
+        { username: 'reifan', password: 'pass24' },
+        { username: 'reyzhal', password: 'pass25' },
+        { username: 'riany', password: 'pass26' },
+        { username: 'risky', password: 'pass27' },
+        { username: 'samuel', password: 'pass28' },
+        { username: 'sarviola', password: 'pass29' },
+        { username: 'seha', password: 'pass30' },
+        { username: 'sulthan', password: 'pass31' },
+        { username: 'syahdan', password: 'pass32' },
+        { username: 'teguh', password: 'pass33' },
+        { username: 'galang', password: 'pass34' },
+        { username: 'yusuf', password: 'pass35' },
+        { username: 'zahra', password: 'pass36' }
+      ];
+
+      // Cek apakah user sudah login
+      window.onload = function() {
+          const loggedInUser = localStorage.getItem('loggedInUser');
+          
+          if (loggedInUser) {
+              // Jika sudah login, arahkan ke halaman berikutnya
+              window.location.href = 'utama';
+          }
       };
 
-      // Fungsi Login
-      function login() {
-        const usernameInput = document.getElementById("username").value;
-        const passwordInput = document.getElementById("password").value;
-        const statusMessage = document.getElementById("statusMessage");
-
-        // Cek apakah username dan password valid
-        if (users[usernameInput] && users[usernameInput] === passwordInput) {
-          statusMessage.className = "status-message success";
-          statusMessage.textContent =
-            "Login berhasil! Mengarahkan ke halaman...";
-
-          // Mengarahkan pengguna ke URL tujuan setelah 1 detik
-          setTimeout(() => {
-            window.location.href = "utama"; // Ganti URL dengan URL website Anda
-          }, 900);
-        } else if (!users[usernameInput]) {
-          statusMessage.className = "status-message error";
-          statusMessage.textContent = "Username tidak ditemukan. Silakan coba lagi.";
-        } else {
-          statusMessage.className = "status-message error";
-
-          statusMessage.textContent = "Password salah. Silakan coba lagi.";
-        }
-      }
+      // Proses login
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+          
+          // Validasi username dan password
+          const validUser = validCredentials.find(user => user.username === username && user.password === password);
+          
+          if (validUser) {
+              // Simpan data login di localStorage
+              localStorage.setItem('loggedInUser', username);
+              
+              // Arahkan ke halaman berikutnya setelah login
+              window.location.href = 'utama';
+          } else {
+              alert('Username atau Password salah!');
+          }
+      });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
