@@ -253,12 +253,6 @@
         addLoaderEvent('loadPage3', 'loaderWrapper3', 2000); // Galery
         addLoaderEvent('loadPage4', 'loaderWrapper4', 3000); // Walas
         
-        // Cek apakah pengguna sudah login
-        if (localStorage.getItem("loggedIn") !== "true") {
-            // Redirect ke halaman login jika tidak terautentikasi
-            window.location.href = "https://xtkj.my.id";
-        }
-        
         // Logout function
         function logout() {
             localStorage.removeItem('loggedInUser');
