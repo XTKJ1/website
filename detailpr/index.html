@@ -202,6 +202,12 @@
 </center>
 
 <script>
+// Cek apakah pengguna sudah login
+        if (localStorage.getItem("loggedIn") !== "true") {
+            // Redirect ke halaman login jika tidak terautentikasi
+            window.location.href = "https://xtkj.my.id";
+        }
+        
   function jawab() {
             alert('Hayo ngapain, Ga Boleh Nyontek!!!');
         }
