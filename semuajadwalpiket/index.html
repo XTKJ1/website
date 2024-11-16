@@ -108,12 +108,6 @@
     </div>
 
     <script>
-      // Cek apakah pengguna sudah login
-        if (localStorage.getItem("loggedIn") !== "true") {
-            // Redirect ke halaman login jika tidak terautentikasi
-            window.location.href = "https://xtkj.my.id";
-        }
-        
       document.getElementById("myButton").addEventListener("click", function() {
             window.location.href = "../agenda"; // Ganti dengan URL tujuan
         });
