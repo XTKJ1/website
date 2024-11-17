@@ -316,6 +316,7 @@
             event.target.classList.add('clicked');
             setTimeout(() => {
                 window.location.href = event.target.href;
+                window.scrollTo(0, 0);  // Mengembalikan posisi scroll ke atas
             }, 300); // Delay untuk animasi klik
         }
 
