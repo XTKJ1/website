@@ -190,6 +190,17 @@
             color: white;
         }
 
+        /* Animasi klik pada tombol konfirmasi dan batal */
+        .modal-buttons button.clicked {
+            animation: buttonClick 0.2s ease forwards;
+        }
+
+        @keyframes buttonClick {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(0.9); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 0.6; }
+        }
+
         .modal-buttons button:hover {
             opacity: 0.8;
         }
@@ -317,7 +328,9 @@
             setTimeout(() => {
                 window.location.href = event.target.href;
                 window.scrollTo(0, 0);  // Mengembalikan posisi scroll ke atas
-            }, 300); // Delay untuk animasi klik
+                // Tambahkan animasi kembali
+                event.target.classList.remove('clicked');
+            }, 500); // Delay untuk animasi klik
         }
 
         document.querySelectorAll('.menu-link').forEach(link => {
@@ -334,7 +347,7 @@
 
         function logout() {
             // Simulate logout action with animation effect
-            document.getElementById('confirmLogout').classList.add('button-clicked');
+            document.getElementById('confirmLogout').classList.add('clicked');
             localStorage.removeItem('loggedInUser');
             setTimeout(() => {
                 window.location.href = 'https://xtkj.my.id';
@@ -342,7 +355,7 @@
         }
 
         document.getElementById('cancelLogout').onclick = function() {
-            this.classList.add('button-clicked');
+            this.classList.add('clicked');
             setTimeout(closeModal, 300);  // Close modal after animation
         };
     </script>
