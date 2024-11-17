@@ -104,7 +104,7 @@
 <span class="w3-right w3-opacity">30 min</span>
 <h4>Orang Asing</h4><br>
 <hr class="w3-clear">
-<p>Hai di sini saya akan infokan ada agenda apa saja besok, yuk di scroll ke bawah</p>
+<p>Hai <span id="username">user</span>, saya di sini akan infokan ada agenda apa saja besok, yuk di scroll ke bawah</p>
 <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
 <button onclick="myFunction('Demo12')" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-comment"></i> Comment</button>
 <div id="Demo12" class="w3-hide w3-container">
@@ -151,7 +151,7 @@
             <a href="../detailpr/" style="text-decoration:none;">Klik Aku</a></div>
         </li>
         <li class="agenda-item">
-            <div class="agenda-name">Kegiatan: <br> -Upacara <br> -Belajar <br>
+            <div class="agenda-name">Kegiatan: <br> -Belajar <br>
             </div>
         </li>
     </ul>
@@ -223,6 +223,14 @@
 </footer>
 
 <script>
+// Menampilkan nama pengguna jika sudah ada di localStorage
+        window.onload = function() {
+            const username = localStorage.getItem('loggedInUser');
+            if (username) {
+                document.getElementById('username').textContent = username;
+            }
+        };
+        
 // Accordion
 function myFunction(id) {
 var x = document.getElementById(id);
