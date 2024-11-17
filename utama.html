@@ -68,6 +68,32 @@
             animation: fadeIn 2s ease-out 1.5s forwards;
         }
 
+        /* Sambutan Selamat Datang di pojok kanan atas */
+        .welcome-message {
+            position: fixed;
+            top: 20px; /* Sama dengan posisi tombol logout */
+            right: 20px; /* Sama dengan posisi tombol logout */
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInWelcome 1s ease-out forwards;
+        }
+
+        @keyframes fadeInWelcome {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .user-img {
+            width: 30px; /* Ukuran gambar lebih kecil */
+            height: 30px; /* Ukuran gambar lebih kecil */
+            border-radius: 50%;
+            margin-left: 8px;  /* Menambahkan jarak antara gambar dan teks */
+        }
+
         /* Menu */
         .menu {
             text-align: center;
@@ -255,7 +281,13 @@
         <h1>X TKJ 1</h1>
         <h2>SMK 11 MARET</h2>
     </div>
-    
+
+    <!-- Sambutan Selamat Datang di pojok kanan atas -->
+    <div class="welcome-message">
+        <p>Selamat datang, <span id="username">User</span>!</p>
+        <img src="user.jpg" alt="userpic" class="user-img">
+    </div>
+
     <!-- Tombol Logout di pojok kiri atas -->
     <button class="logout-button" onclick="showModal()">Logout</button>
 
@@ -321,6 +353,14 @@
     </div>
 
     <script>
+        // Menampilkan nama pengguna jika sudah ada di localStorage
+        window.onload = function() {
+            const username = localStorage.getItem('loggedInUser');
+            if (username) {
+                document.getElementById('username').textContent = username;
+            }
+        };
+
         // Menambahkan animasi klik pada menu
         function addClickAnimation(event) {
             event.preventDefault();
@@ -328,7 +368,6 @@
             setTimeout(() => {
                 window.location.href = event.target.href;
                 window.scrollTo(0, 0);  // Mengembalikan posisi scroll ke atas
-                // Tambahkan animasi kembali
                 event.target.classList.remove('clicked');
             }, 500); // Delay untuk animasi klik
         }
@@ -346,7 +385,6 @@
         }
 
         function logout() {
-            // Simulate logout action with animation effect
             document.getElementById('confirmLogout').classList.add('clicked');
             localStorage.removeItem('loggedInUser');
             setTimeout(() => {
