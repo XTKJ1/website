@@ -84,6 +84,12 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
+// Menampilkan waktu
+var today = new Date();
+  document.getElementById("hours").innerHTML = today.getHours();
+  document.getElementById("minutes").innerHTML = today.getMinutes();
+  document.getElementById("seconds").innerHTML = today.getSeconds();
+
 // Menampilkan nama pengguna jika sudah ada di localStorage
 window.onload = function() {
   const username = localStorage.getItem('loggedInUser');
