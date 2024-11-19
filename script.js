@@ -84,6 +84,15 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
+// Menampilkan nama pengguna jika sudah ada di localStorage
+window.onload = function() {
+  const username = localStorage.getItem('loggedInUser');
+  if (username) {
+    document.getElementById('username').textContent = username;
+    
+  }
+  };
+
 //fungsi struktur dan jadwal
 function showStruktur() {
   document.getElementById('strukturContent').style.display = 'block';
