@@ -57,8 +57,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Fungsi Logout
   function logout() {
-    window.location.href = 'https://xtkj.my.id';
-  }
+    document.getElementById('confirmLogout').classList.add('clicked');
+            localStorage.removeItem('loggedInUser');
+            setTimeout(() => {
+                window.location.href = 'https://xtkj.my.id';
+            }, 500);
+        }
         
 //fungsi rating
 var step = 100;
