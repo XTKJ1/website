@@ -45,6 +45,28 @@ document.addEventListener('DOMContentLoaded', function () {
   updateNavbar();
 });
 
+//fungsi logout
+function showModal() {
+            document.getElementById('logoutModal').style.display = 'flex';
+}
+
+function closeModal() {
+            document.getElementById('logoutModal').style.display = 'none';
+}
+
+function logout() {
+            document.getElementById('confirmLogout').classList.add('clicked');
+            localStorage.removeItem('loggedInUser');
+            setTimeout(() => {
+                window.location.href = 'https://xtkj.my.id';
+            }, 500);
+}
+
+document.getElementById('cancelLogout').onclick = function() {
+            this.classList.add('clicked');
+            setTimeout(closeModal, 300);  // Close modal after animation
+};
+        
 //fungsi rating
 var step = 100;
 
