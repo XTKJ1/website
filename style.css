@@ -853,3 +853,97 @@ button:hover {
 .close-button:hover {
   background-color: #e53935;
 }
+
+.logout-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: slideInFromLeft 1s ease-out forwards;
+  }
+
+@keyframes slideInFromLeft {
+            0% { opacity: 0; transform: translateX(-100%); }
+            100% { opacity: 1; transform: translateX(0); }
+            }
+            
+.logout-button:hover {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+  }
+  
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  transform: scale(0.5);
+  animation: zoomIn 0.4s ease forwards;
+  }
+
+@keyframes zoomIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+.modal-buttons {
+            margin-top: 20px;
+        }
+        
+.modal-buttons button {       
+  padding: 10px 20px;
+  font-size: 1.1em;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  opacity: 1;
+  }
+
+.modal-buttons .confirm-logout {
+  background: #2ecc71;
+  color: white;
+  }
+  .modal-buttons .cancel-logout {
+    background: #e74c3c;
+    color: white;
+    }
+    
+/* Animasi klik pada tombol konfirmasi dan batal */
+.modal-buttons button.clicked {
+  animation: buttonClick 0.2s ease forwards;
+  }
+  
+@keyframes buttonClick {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(0.9); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 0.6; }
+        }
+        
+.modal-buttons button:hover {
+  opacity: 0.8;
+  }
