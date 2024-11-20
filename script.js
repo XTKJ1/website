@@ -44,6 +44,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   updateNavbar();
 });
+
+// Fungsi confirm logout
+  function showModol() {
+    document.getElementById('logoutModol').classList.remove('hidden');
+  }
+
+  // Fungsi close logout
+  function closeModol() {
+    document.getElementById('logoutModol').classList.add('hidden');
+  }
+
+  // Fungsi Logout
+  function logout() {
+    window.location.href = 'https://xtkj.my.id';
+  }
         
 //fungsi rating
 var step = 100;

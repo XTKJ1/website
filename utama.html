@@ -240,8 +240,7 @@
     <a href="#Gallery" class="block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full">Gallery</a>
     <a href="https://xtkj.my.id/list" class="block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full">Siswa & Siswi</a>
     <a href="#Structure" class="block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full">Structure & Schedule</a>
-    <!--<a href="index.html" class="block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full">Logout</a>-->
-    <button class="logout-button block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full" onclick="showModall()">Logout</button>
+    <!--<a href="index.html" class="block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full">Logout</a>--><button class="logout-button block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full" onclick="showModol()">Logout</button>
   </div>
 </div>
 
@@ -550,6 +549,16 @@
       </table>
     </div>
   </div>
+  <!-- Modol for logout confirmation -->
+<div id="logoutModol" class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-black p-4 rounded-md max-w-sm w-full">
+    <h2 class="text-xl font-bold text-center">Apakah Anda Yakin Ingin Logout?</h2>
+    <div class="mt-4 flex justify-around">
+      <button class="py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600" onclick="logout()">Yakin</button>
+      <button class="py-2 px-4 bg-gray-500 text-white rounded-md hover:bg-gray-600" onclick="closeModol()">Batal</button>
+    </div>
+  </div>
+</div>
   <!-- footer -->
 <footer class="my-7 rounded-xl grid grid-cols-1 md:flex md:justify-center md:grid-cols-3 mx-auto my-7 rounded-xl" id="Footer">
 			<div class="mx-auto w-full max-w-screen-xl px-8 py-6 lg:py-8 ">

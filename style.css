@@ -853,3 +853,57 @@ button:hover {
 .close-button:hover {
   background-color: #e53935;
 }
+
+  #logoutModol {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+
+  #logoutModol > div {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  #logoutModol h2 {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #logoutModol button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  #logoutModol button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  #logoutModol.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
