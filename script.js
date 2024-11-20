@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Fungsi Logout
   function logout() {
-    document.getElementById('confirmLogout').classList.add('clicked');
             localStorage.removeItem('loggedInUser');
             setTimeout(() => {
                 window.location.href = 'https://xtkj.my.id';
