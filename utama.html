@@ -7,6 +7,7 @@
 
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="icon" type="image/svg+xml" href="https://malasid.github.io/favicon.png" />
 	<title>Website X TKJ 1</title>
@@ -240,6 +241,8 @@
     <a href="#Gallery" class="block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full">Gallery</a>
     <a href="https://xtkj.my.id/list" class="block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full">Siswa & Siswi</a>
     <a href="#Structure" class="block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full">Structure & Schedule</a>
+    <!--<a href="index.html" class="block py-2 px-4 text-lg font-bold hover:bg-gray-800 rounded-full">Logout</a>-->
+    <button class="logout-button" onclick="showModal()">Logout</button>
   </div>
 </div>
 
@@ -285,12 +288,12 @@
             <ul class="patrocinador">
                 <a>
                     <li
-                        style="background-image: url('/src/.jpg') ;
+                        style="background-image: url('/src/tugofwar.jpg') ;
                         background-size: cover; background-repeat:no-repeat; background-position: center 42%; width: 20rem; height:6rem;
                         " >
-                        <span class="new">BacktoBack</span>
+                        <span class="new">Champion</span>
                         <span class='uteis'>
-                            Tug Of War Champion 
+                            Tug Of War
                         </span>
                     </li>
                 </a>
@@ -447,9 +450,13 @@
         </thead>
         <tbody>
           <tr>
-            <td rowspan="2">Senin</td>
+            <td rowspan="3">Senin</td>
             <td>Informatika</td>
             <td>07.30 - 09.10</td>
+          </tr>
+          <tr>
+            <td>Istirahat</td>
+            <td>09.10 - 09.50</td>
           </tr>
           <tr>
             <td>Matematika</td>
@@ -457,7 +464,7 @@
           </tr>
         <tbody>
           <tr>
-            <td rowspan="2">Selasa</td>
+            <td rowspan="5">Selasa</td>
             <td>Bahasa Inggris</td>
             <td>06.30 - 08.00</td>
           </tr>
@@ -465,27 +472,35 @@
             <td>Dasar Komputer Jaringan</td>
             <td>08.00 - 09.30</td>
           </tr>
+          <tr>
+            <td>Istirahat</td>
+            <td>09.30 - 09.50</td>
+          </tr>
+          <tr>
+            <td>Seni Budaya</td>
+            <td>09.50 - 10.30</td>
+          </tr>
+          <tr>
+            <td>Bahasa Indonesia</td>
+            <td>10.30 - 11.50</td>
+          </tr>
         <tbody>
           <tr>
-            <td rowspan="5">Rabu</td>
-            <td>Not Found</td>
-            <td>Not Found</td>
+            <td rowspan="4">Rabu</td>
+            <td>Sejarah</td>
+            <td>06.30 - 08.00</td>
           </tr>
           <tr>
-            <td>Not Found</td>
-            <td>Not Found</td>
-          </tr>
- <tr>
-            <td>Not Found</td>
-            <td>Not Found</td>
-          </tr>
- <tr>
-            <td>Not Found</td>
-            <td>Not Found</td>
+            <td>Penjas</td>
+            <td>08.00 - 09.30</td>
           </tr>
           <tr>
-            <td>Not Found</td>
-            <td>Not Found</td>
+            <td>Istirahat</td>
+            <td>09.30 - 09.50</td>
+          </tr>
+          <tr>
+            <td>Bisnis Teknik Informasi</td>
+            <td>09.50-11.50</td>
           </tr>
         </tbody>
         <tbody>
@@ -536,6 +551,17 @@
       </table>
     </div>
   </div>
+<!-- Modal Logout -->
+    <div class="modal" id="logoutModal">
+        <div class="modal-content">
+            <h2>Konfirmasi Logout</h2>
+            <p>Apakah Anda yakin ingin logout?</p>
+            <div class="modal-buttons">
+                <button class="confirm-logout" id="confirmLogout" onclick="logout()">Yakin</button>
+                <button class="cancel-logout" id="cancelLogout" onclick="closeModal()">Batal</button>
+            </div>
+        </div>
+    </div>
   <!-- footer -->
 <footer class="my-7 rounded-xl grid grid-cols-1 md:flex md:justify-center md:grid-cols-3 mx-auto my-7 rounded-xl" id="Footer">
 			<div class="mx-auto w-full max-w-screen-xl px-8 py-6 lg:py-8 ">
