@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unduh Dokumen</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .dynamic-file-btn {
+            background-color: #2196F3;
+        }
+
+        .dynamic-file-btn:hover {
+            background-color: #1976D2;
+        }
+
+        .file-links {
+            margin-top: 30px;
+        }
+
+        .file-links a {
+            display: block;
+            margin: 10px 0;
+            color: #1e88e5;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .file-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Unduh Dokumen</h1>
+
+        <!-- Link untuk mengunduh file statis (PDF, TXT) -->
+        <div class="file-links">
+            <a href="dokumen.pdf" class="btn" download="dokumen_unduhan.pdf">Unduh PDF</a>
+            <a href="dokumen.txt" class="btn" download="dokumen_unduhan.txt">Unduh TXT</a>
+        </div>
+
+        <!-- Tombol untuk mengunduh file dinamis -->
+        <button id="unduhBtn" class="btn dynamic-file-btn">Unduh Dokumen Dinamis</button>
+    </div>
+
+    <script>
+        document.getElementById("unduhBtn").addEventListener("click", function() {
+            const teks = "Ini adalah dokumen yang diunduh secara dinamis melalui JavaScript.";
+            const blob = new Blob([teks], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "dokumen_dinamika.txt";  // Nama file yang akan diunduh
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);  // Bersihkan URL setelah penggunaan
+        });
+    </script>
+
+</body>
+</html>
