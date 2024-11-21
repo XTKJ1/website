@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website X TKJ 1</title>
+    <style>
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the body */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Animation for fading in the page */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Styling for the Wi-Fi container */
+        .wifi-container {
+            background: linear-gradient(135deg, #9dd, #f92);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 420px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeInContainer 1.5s ease-out forwards;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Fade in animation for the container */
+        @keyframes fadeInContainer {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Title styling */
+        h1 {
+            color: #fff;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        /* Slide-in animation for the title */
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Paragraph styling */
+        p {
+            color: #fff;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            animation: fadeInText 1s ease-out;
+        }
+
+        /* Fade in animation for text */
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Styling for Wi-Fi details section */
+        .wifi-details {
+            text-align: left;
+            animation: fadeInText 1.5s ease-out;
+        }
+
+        /* Styling for each Wi-Fi item */
+        .wifi-item {
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInText 2s ease-out forwards;
+        }
+
+        .wifi-item h3 {
+            font-size: 1.2em;
+            color: #e5e5e5;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .wifi-item p {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Add hover effect on Wi-Fi name and password */
+        .wifi-item p:hover {
+            color: #2196F3;
+            cursor: pointer;
+            text-decoration: underline;
+            transform: scale(1.05);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #121212;
+            color: #f5f5f5;
+        }
+
+        .wifi-container.dark-mode {
+            background: linear-gradient(135deg, #263238, #37474F);
+            box-shadow: 0 8px 40px rgba(0, 255, 255, 0.3);
+            animation: glowContainer 2s infinite alternate;
+        }
+
+        @keyframes glowContainer {
+            0% {
+                box-shadow: 0 8px 40px rgba(0, 255, 255, 0.3);
+            }
+            100% {
+                box-shadow: 0 8px 40px rgba(0, 255, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.5);
+            }
+        }
+
+        h1.dark-mode {
+            color: #f87;
+            text-shadow: 0 0 15px #fff, 0 0 30px #fff;
+        }
+
+        .wifi-item h3.dark-mode {
+            color: #bbb;
+        }
+
+        .wifi-item p.dark-mode {
+            color: #f5f5f5;
+            text-shadow: 0 0 10px #00bcd4;
+        }
+
+        footer.dark-mode {
+            color: #bbb;
+        }
+
+        footer a.dark-mode {
+            color: #81C784;
+        }
+
+        /* Dark mode toggle button */
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleTheme()">Switch to Dark Mode All</button>
+    <div class="wifi-container">
+        <div class="wifi-info">
+            <h1>Welcome to my Free Wi-Fi</h1>
+            <p>Enjoy free internet access during my visit!</p>
+            <div class="wifi-details">
+                <div class="wifi-item">
+                    <h3>Wi-Fi Name (SSID):</h3>
+                    <p><strong>MIPI 4G HGCO8</strong></p>
+                </div>
+                <div class="wifi-item">
+                    <h3>Password:</h3>
+                    <p><strong>BYNANCMP</strong></p>
+                </div>
+            </div>
+            <footer>
+                <p>For support, visit <a href="https://xtkj.my.id">My website</a>.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const container = document.querySelector('.wifi-container');
+            const h1 = document.querySelector('h1');
+            const wifiItems = document.querySelectorAll('.wifi-item h3, .wifi-item p');
+            const footer = document.querySelector('footer');
+            const toggleButton = document.querySelector('.toggle-btn');
+            
+            body.classList.toggle('dark-mode');
+            container.classList.toggle('dark-mode');
+            h1.classList.toggle('dark-mode');
+            wifiItems.forEach(item => item.classList.toggle('dark-mode'));
+            footer.classList.toggle('dark-mode');
+            toggleButton.classList.toggle('dark-mode');
+
+            // Toggle button text
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.textContent = 'Switch to Light Mode';
+            } else {
+                toggleButton.textContent = 'Switch to Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>
