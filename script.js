@@ -63,12 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500);
         }
         
-  // Cek apakah pengguna sudah login
-        if (!localStorage.getItem('loggedIn')) {
-            // Jika belum login, arahkan ke halaman login
-            window.location.href = 'https://xtkj.my.id';
-        }
-        
 //fungsi rating
 var step = 100;
 
