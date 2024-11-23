@@ -239,19 +239,6 @@
         { username: 'yusuf', password: 'pass35' },
         { username: 'zahra', password: 'pass36' }
       ];
-      
-      const validSambutan = [
-        { katakata: 'Selamat Datang', tidakusah: 'false' },
-        ];
-        
-      const katakata = document.getElementById('katakata').value;
-      const tidakusah = document.getElementById('tidakusah').value;
-      
-      const validSambut = validSambutan.find(user => user.katakata === katakata && user.tidakusah === tidakusah);
-      
-      if (validSambut) {
-              // Simpan data di localStorage
-              localStorage.setItem('loggedInSambut', katakata);
 
       // Cek apakah user sudah login
       window.onload = function() {
