@@ -63,6 +63,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500);
         }
         
+        // Cek apakah pengguna sudah login
+        if (!localStorage.getItem('loggedIn')) {
+            // Jika belum login, arahkan ke halaman login
+            window.location.href = 'index.html';
+        }
+
+        function logout() {
+            // Hapus status login dari localStorage dan arahkan kembali ke halaman login
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'index.html';
+        }
+        
 //fungsi rating
 var step = 100;
 
