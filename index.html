@@ -1,277 +1,72 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website X TKJ 1</title>
-    <link rel="icon" href="https://malasid.github.io/favicon.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
-    <style>
-      body {
-        background: linear-gradient(135deg, rgba(128, 0, 128, 1) 0%, rgba(255, 0, 255, 1) 100%);
-        font-family: 'Arial', sans-serif;
-        margin-bottom: 60px; /* Make space for the fixed navbar at the bottom */
-      }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 20px;
+}
 
-      .greeting {
-        text-align: center;
-        font-size: 1.1rem;
-        color: #fff;
-        font-weight: bold;
-        margin-top: 50px;
-      }
-      
-      .hubungi {
-        text-align: center;
-        font-size: 13px;
-        color: #800888;
-      }
+h1 {
+    text-align: center;
+    color: #007bff;
+}
 
-      .login-container {
-        max-width: 450px;
-        margin: 40px auto;
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        text-align: center;
-      }
+a {
+  text-decoration:none;
+}
+.game-container {
+    max-width: 400px;
+    margin: 0 auto;
+    overflow-y: scroll; /* Membuat kontainer bisa di-scroll secara vertikal */
+    max-height: 300px; /* Membatasi tinggi maksimal kontainer */
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-      .login-container h2 {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 30px;
-      }
+.game-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
-      .form-control {
-        border-radius: 50px;
-        padding: 15px;
-        font-size: 1.1rem;
-        transition: box-shadow 0.3s ease;
-      }
+.game-list li {
+    background-color: #e9ecef;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
 
-      .form-control:focus {
-        box-shadow: 0 0 10px rgba(128, 0, 128, 1);
-        border-color: #800080;
-        outline: none;
-      }
-
-      .btn-primary {
-        border-radius: 50px;
-        padding: 15px 30px;
-        font-size: 1.2rem;
-        background-color: #800080;
-        border: none;
-        transition: background-color 0.3s ease;
-      }
-
-      .btn-primary:hover {
-        background-color: #6a006a;
-      }
-
-      .status-message {
-        margin-top: 20px;
-        font-weight: bold;
-      }
-
-      .status-message.success {
-        color: #800080;
-      }
-
-      .status-message.error {
-        color: red;
-      }
-
-      .form-group {
-        position: relative;
-        margin-bottom: 20px;
-      }
-
-      .form-group i {
-        position: absolute;
-        top: 15px;
-        left: 10px;
-        font-size: 1.2rem;
-        color: #bbb;
-      }
-
-      .form-control.input-icon {
-        padding-left: 35px;
-      }
-
-      /* Glow animation */
-      @keyframes glow {
-        0% {
-          box-shadow: 0 0 5px #800080;
-        }
-        50% {
-          box-shadow: 0 0 20px #800080;
-        }
-        100% {
-          box-shadow: 0 0 5px #800080;
-        }
-      }
-
-      .form-control:focus {
-        animation: glow 1s ease-in-out infinite;
-      }
-
-      /* Bottom Navbar */
-      .navbar-bottom {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background: linear-gradient(135deg, rgba(128, 0, 128, 1) 0%, rgba(255, 0, 255, 1) 100%);
-        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
-        padding: 15px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.2rem;
-        color: white;
-        font-weight: bold;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        animation: glow 1s ease-in-out infinite;
-      }
-
-      .navbar-bottom a {
-        color: white;
-        margin: 0 15px;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .navbar-bottom a:hover {
-        color: #800080;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="greeting">
-      <p>Welcome To Website X TKJ 1</p>
-      <p>Sebelum Masuk Website, Terlebih Dahulu Username Dan Password Mu</p>
+.game-list li:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+  
+</style>
+</head>
+<body>
+    <h1>List Game</h1>
+    <div class="game-container">
+        <ul class="game-list">
+        <a href="rubik3D/index.html"><li>Rubik 3D</li></a>
+        <a href="lampu/index.html"><li>Lampu</li></a>
+        <a href="cekkhodam/index.html"><li>Cek Khodam</li></a>
+        <a href="box/index.html"><li>Box</li></a>
+        <a href="pickcard/index.html"><li>Pick Card</li></a>
+        <a href="https://sliding-puzzle.virgule.net"><li>Puzzle Image</li></a>
+        </ul>
     </div>
-    <div class="container">
-      <div class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm">
-          <div class="form-group">
-            <i class="fas fa-user"></i>
-            <input
-              type="text"
-              id="username"
-              class="form-control input-icon"
-              placeholder="Username"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <i class="fas fa-lock"></i>
-            <input
-              type="password"
-              id="password"
-              class="form-control input-icon"
-              placeholder="Password"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            class="btn btn-primary"
-          >
-            Login
-          </button>
-          <p id="statusMessage" class="status-message mt-3"></p>
-        </form>
-        <hr>
-        <div class="hubungi">
-          <p>Tidak Tau Username Dan Password? Hubungi</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom Navbar -->
-    <div class="navbar-bottom">
-      <a href="#">©Copyright Siswa X TKJ 1<br>SMK 11 MARET</a>
-    </div>
-
     <script>
-      // Daftar username dan password yang valid (34 pasangan)
-      const validCredentials = [
-        { username: 'andika', password: 'pass1' },
-        { username: 'ari', password: 'pass2' },
-        { username: 'aurel', password: 'pass3' },
-        { username: 'cheriel', password: 'pass4' },
-        { username: 'danny', password: 'pass5' },
-        { username: 'dimas', password: 'pass6' },
-        { username: 'fazri', password: 'pass7' },
-        { username: 'galuh', password: 'pass8' },
-        { username: 'hikmah', password: 'pass9' },
-        { username: 'ibnu', password: 'pass10' },
-        { username: 'iqbal', password: 'pass11' },
-        { username: 'iqdhal', password: 'pass12' },
-        { username: 'junior', password: 'pass13' },
-        { username: 'marchel', password: 'pass14' },
-        { username: 'asrul', password: 'pass15' },
-        { username: 'ardhan', password: 'pass16' },
-        { username: 'revaldo', password: 'pass17' },
-        { username: 'rizky', password: 'pass18' },
-        { username: 'muiz', password: 'pass19' },
-        { username: 'nakif', password: 'pass20' },
-        { username: 'priyatno', password: 'pass21' },
-        { username: 'raka', password: 'pass22' },
-        { username: 'regan', password: 'pass23' },
-        { username: 'reifan', password: 'pass24' },
-        { username: 'reyzhal', password: 'pass25' },
-        { username: 'riany', password: 'pass26' },
-        { username: 'risky', password: 'pass27' },
-        { username: 'samuel', password: 'pass28' },
-        { username: 'sarviola', password: 'pass29' },
-        { username: 'seha', password: 'pass30' },
-        { username: 'sulthan', password: 'pass31' },
-        { username: 'syahdan', password: 'pass32' },
-        { username: 'teguh', password: 'pass33' },
-        { username: 'galang', password: 'pass34' },
-        { username: 'yusuf', password: 'pass35' },
-        { username: 'zahra', password: 'pass36' }
-      ];
-
-      // Cek apakah user sudah login
-      window.onload = function() {
-          const loggedInUser = localStorage.getItem('loggedInUser');
-          
-          if (loggedInUser) {
-              // Jika sudah login, arahkan ke halaman berikutnya
-              window.location.href = 'https://xtkj.my.id/utama';
-          }
-      };
-
-      // Proses login
-      document.getElementById('loginForm').addEventListener('submit', function(event) {
-          event.preventDefault();
-          
-          const username = document.getElementById('username').value;
-          const password = document.getElementById('password').value;
-          
-          // Validasi username dan password
-          const validUser = validCredentials.find(user => user.username === username && user.password === password);
-          
-          if (validUser) {
-              // Simpan data login di localStorage
-              localStorage.setItem('loggedInUser', username);
-              
-              // Arahkan ke halaman berikutnya setelah login
-              window.location.href = 'https://xtkj.my.id/utama';
-          } else {
-              alert('Username atau Password salah!');
-          }
-      });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+</body>
 </html>
