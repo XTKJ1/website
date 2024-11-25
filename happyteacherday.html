@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Hari Guru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background-color: #f5deb3;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid #d2b48c;
+        }
+
+        .flap {
+            width: 100%;
+            height: 60px;
+            background-color: #d2b48c;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: top;
+            transition: transform 0.5s ease;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+            display: none;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        .content p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .details {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%);
+            background-size: 20px 20px;
+        }
+
+        .lipatan {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #c5a27e;
+            top: 60px;
+            left: 0;
+            z-index: 1;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #d2b48c;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a97b56;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope">
+        <div class="details"></div>
+        <div class="flap"></div>
+        <div class="lipatan"></div>
+        <div class="content">
+            <p><strong>Selamat Hari Guru!</strong></p>
+            <p>Selamat merayakan hari guru nasional yang ke 79 semoga bapa ibu guru sehat selalu dan makin sabar dalam mengajar kami</p>
+            <hr>
+            <footer>&copy; X TKJ 1 - SMK 11 MARET JAKARTA</footer>
+        </div>
+    </div>
+
+    <button onclick="openEnvelope()">Buka Amplop</button>
+
+    <script>
+        function openEnvelope() {
+            const flap = document.querySelector('.flap');
+            const content = document.querySelector('.content');
+
+            flap.style.transform = 'rotateX(180deg)';
+            content.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
