@@ -45,6 +45,23 @@ document.addEventListener('DOMContentLoaded', function () {
   updateNavbar();
 });
 
+        // Mendapatkan elemen video dan kontrol
+        const video1 = document.getElementById('myVideo1');
+        const video2 = document.getElementById('myVideo2');
+        const muteButton1 = document.getElementById('muteButton1');
+        const muteButton2 = document.getElementById('muteButton2');
+
+        // Fungsi untuk toggle mute/unmute
+        muteButton1.addEventListener('click', () => {
+            video1.muted = !video1.muted;
+            muteButton1.textContent = video1.muted ? 'Unmute-1' : 'Mute-1';
+        });
+        
+        muteButton2.addEventListener('click', () => {
+            video2.muted = !video2.muted;
+            muteButton2.textContent = video2.muted ? 'Unmute-2' : 'Mute-2';
+        });
+
 // Fungsi confirm logout
   function showModol() {
     document.getElementById('logoutModol').classList.remove('hidden');
