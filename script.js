@@ -48,8 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Mendapatkan elemen video dan kontrol
         const video1 = document.getElementById('myVideo1');
         const video2 = document.getElementById('myVideo2');
+        const video3 = document.getElementById('myVideo3');
         const muteButton1 = document.getElementById('muteButton1');
         const muteButton2 = document.getElementById('muteButton2');
+        const muteButton3 = document.getElementById('muteButton3');
 
         // Fungsi untuk toggle mute/unmute
         muteButton1.addEventListener('click', () => {
@@ -60,6 +62,11 @@ document.addEventListener('DOMContentLoaded', function () {
         muteButton2.addEventListener('click', () => {
             video2.muted = !video2.muted;
             muteButton2.textContent = video2.muted ? 'Unmute-2' : 'Mute-2';
+        });
+        
+        muteButton3.addEventListener('click', () => {
+            video3.muted = !video3.muted;
+            muteButton3.textContent = video3.muted ? 'Unmute-3' : 'Mute-3';
         });
 
 // Fungsi confirm logout
