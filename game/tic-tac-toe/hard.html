@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- Deklarasi dokumen HTML dan bahasa Indonesia -->
+  <meta charset="UTF-8">
+  <!-- Mengatur agar tampilan sesuai pada perangkat mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe Hard</title>
+  <!-- Menyisipkan font dari Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Menyisipkan CSS secara Eksternal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Judul permainan -->
+  <h1>Tic-Tac-Toe</h1>
+  <!-- Informasi mode permainan -->
+  <div class="mode-info" id="modeInfo">
+    Pilih mode permainan
+  </div>
+  <!-- Pesan peringatan -->
+  <div class="warning" id="warningMessage"></div>
+  <!-- Tombol untuk memilih mode permainan -->
+  <div class="game-mode">
+    <button id="modeSingle">Pemain vs AI</button>
+    <button id="modeMulti">Dua Pemain</button>
+  </div>
+  <!-- Papan permainan -->
+  <div class="board" id="board"></div>
+  <!-- Informasi skor pemain -->
+  <div class="scoreboard">
+    Skor: Pemain X: <span id="scoreX">0</span> | Pemain O: <span id="scoreO">0</span>
+  </div>
+  <!-- Pesan hasil permainan -->
+  <div class="message" id="message"></div>
+  <!-- Tombol reset permainan -->
+  <button class="reset-btn" id="resetButton">Reset Permainan</button>
+
+  <!-- Menyisipkan JavaScript secara Eksternal -->
+  <script src="scripthard.js"></script>
+</body>
+</html>

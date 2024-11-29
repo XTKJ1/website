@@ -1,0 +1,143 @@
+/* Reset margin, padding, dan box-sizing untuk elemen HTML dan body */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Gaya untuk body, termasuk background gradien, warna teks, dan pengaturan layout */
+body {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e87f0, #a4508b);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 10px;
+}
+
+/* Gaya untuk judul halaman */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Gaya untuk elemen info mode permainan */
+.mode-info {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Gaya untuk pesan peringatan */
+.warning {
+  color: #ff0000;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Gaya untuk tombol pilihan mode permainan */
+.game-mode {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Gaya untuk tombol dengan efek hover */
+.game-mode button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.game-mode button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #ff8900, #ff3f7d);
+}
+
+/* Gaya untuk papan permainan (grid 3x3) */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+}
+
+/* Gaya untuk setiap kotak pada papan permainan */
+.cell {
+  width: 100px;
+  height: 100px;
+  background: #ffffff10;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+  background: #ffffff30;
+}
+
+/* Gaya untuk kotak yang sudah diisi (tidak bisa diklik lagi) */
+.cell.taken {
+  pointer-events: none;
+}
+
+/* Gaya warna khusus untuk pemain X */
+.cell.x {
+  color: #ff0000;
+  /* Warna merah untuk X */
+}
+
+/* Gaya warna khusus untuk pemain O */
+.cell.o {
+  color: #ffea00;
+  /* Warna kuning untuk O */
+}
+
+/* Gaya untuk elemen skor permainan */
+.scoreboard {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Gaya untuk pesan permainan (misalnya menang atau seri) */
+.message {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #ffb800;
+}
+
+/* Gaya untuk tombol reset permainan */
+.reset-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #1e87f0, #a4508b);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.reset-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #3f9cf0, #c4508b);
+}
