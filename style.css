@@ -222,6 +222,12 @@ background: linear-gradient(to top, rgba(30, 30, 30, 1) 20%, rgba(30, 30, 30, 0)
   overflow: hidden;
   border-right: 1px solid #fff;
   white-space: nowrap;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #14a6ef, #e52e71, #9d50bb, #6e48aa);
+  background-size: 300% 300%;
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: gradientMove 3s infinite;
   animation: type 5s  infinite;
 }
 
@@ -236,6 +242,20 @@ background: linear-gradient(to top, rgba(30, 30, 30, 1) 20%, rgba(30, 30, 30, 0)
   
   100% {
     width: 0;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 
+    50%;
+  }
+  50% {
+    background-position: 100% 
+    50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 #Time {
