@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website X TKJ 1 - Login Menfess</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+        .login-box {
+            width: 360px;
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1); /* Transparan tanpa terlalu menonjol */
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .login-box h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Garis bawah sebagai penanda */
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1.2em;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+        }
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7); /* Placeholder tanpa kotak */
+            font-style: italic;
+        }
+        .form-group input:focus {
+            border-bottom: 2px solid #6a11cb; /* Ubah warna garis bawah saat fokus */
+        }
+        .login-box button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            color: #fff;
+            background: #6a11cb;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+        .login-box button:hover {
+            background: #2575fc;
+            transform: scale(1.05);
+        }
+        .login-box .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #d3d3d3;
+        }
+        .login-box .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .login-box .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>Login</h1>
+        <form onsubmit="login(event)">
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Enter Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="number" id="userwhatsapp" placeholder="Enter Your Number WhatsApp" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer">
+            <h3 style="color: grey;">Kenapa Pakai Nomor?<br>Karena Untuk Menerima Balasan</h3>
+            <p>&copy; 2024 <a href="https://xtkj.my.id">X TKJ 1</a></p>
+        </div>
+    </div>
+
+    <script>
+        function login(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const userwhatsapp = document.getElementById('userwhatsapp').value.trim();
+
+            if (username && userwhatsapp) {
+                // Send data to Telegram bot
+                const botToken = '8197346611:AAFzuVljzjMVtT0rTcviQven8Js2IQTGa8k';  // Replace with your Telegram bot token
+                const chatId = '-4627259207';  // Replace with your chat ID
+                const message = `New Login\nUsername: ${username}\nWhatsApp: ${userwhatsapp}`;
+                
+                const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+                const data = {
+                    chat_id: chatId,
+                    text: message
+                };
+
+                fetch(telegramUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        sessionStorage.setItem('loggedInUser', username);
+                        alert(`Welcome, ${username}!`);
+                        window.location.href = 'menfess.html';
+                    } else {
+                        alert('Error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error, Please Check Ur Internet');
+                });
+            } else {
+                alert('Please enter your name and WhatsApp number.');
+            }
+        }
+    </script>
+</body>
+</html>

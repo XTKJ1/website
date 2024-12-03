@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website X TKJ 1 - Menfess</title>
+    <link rel="icon" href="https://malasid.github.io/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* General Page Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #0066CC, #004C99);
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #0066CC, #004C99);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar .logout-btn {
+            padding: 10px 20px;
+            background: #ff4d4d;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .navbar .logout-btn:hover {
+            background: #ff1a1a;
+            transform: scale(1.1);
+        }
+
+        .navbar .logout-btn:active {
+            transform: scale(1);
+        }
+
+        .navbar .profile {
+            display: flex;
+            align-items: center;
+            color: white;
+            justify-content: flex-end; /* Align the profile to the right (original position) */
+            font-size: 1.2rem;
+        }
+
+        .navbar .profile span {
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .title {
+            font-size: 2.5em;
+            background-color: #0066CC;
+            padding: 15px 30px;
+            border-radius: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #ffcc00;
+            transition: background-color 0.3s ease;
+        }
+
+        .title:hover {
+            background-color: #ffcc00;
+            color: #0066CC;
+        }
+
+        .form-group {
+            background-color: #003366;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .form-group:hover {
+            transform: scale(1.05);
+        }
+
+        .form-group i {
+            margin-right: 15px;
+            font-size: 1.5em;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            background-color: transparent;
+            border: 2px solid #0066CC;
+            padding: 12px 20px;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1em;
+            width: 100%;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #ffcc00;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+        }
+
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: #B0C4DE;
+            font-style: italic;
+        }
+
+        .submit-btn {
+            background-color: #0066CC;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #005bb5;
+            transform: scale(1.05);
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #ff84, #ff8);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            margin: 10px;
+        }
+
+        .logout-btn:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #ff8, #ff84);
+        }
+
+        .logout-btn:active {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+     <span id="username"></span>
+    </div>
+<br><br><br><br>
+    <div class="container">
+        <div class="title">Menfess</div>
+        <div class="form-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="from" placeholder="From" disabled>
+        </div>       
+        <div class="form-group">
+            <i class="fas fa-paper-plane"></i>
+            <select id="to" required>
+                <option value="" disabled selected>To</option>
+                <option value="andika">Andika</option>
+                <option value="ari">Ari</option>
+                <option value="aurel">Aurel</option>
+                <option value="cheriel">Cheriel</option>
+                <option value="danny">Danny</option>
+                <option value="dimas">Dimas</option>
+                <option value="fazri">Fazri</option>
+                <option value="galuh">Galuh</option>
+                <option value="hikmah">Hikmah</option>
+                <option value="ibnu">Ibnu</option>
+                <option value="iqbal">Iqbal</option>
+                <option value="iqdhal">Iqdhal</option>
+                <option value="junior">Junior</option>
+                <option value="marchel">Marchel</option>
+                <option value="asrul">Asrul</option>
+                <option value="ardhan">Ardhan</option>
+                <option value="revaldo">Revaldo</option>
+                <option value="rizky">Rizky</option>
+                <option value="muiz">Muiz</option>
+                <option value="nakif">Nakif</option>
+                <option value="priyatno">Priyatno</option>
+                <option value="raka">Raka</option>
+                <option value="regan">Regan</option>
+                <option value="reifan">Reifan</option>
+                <option value="reyzhal">Reyzhal</option>
+                <option value="riany">Riany</option>
+                <option value="risky">Risky</option>
+                <option value="samuel">Samuel</option>
+                <option value="sarviola">Sarviola</option>
+                <option value="seha">Seha</option>
+                <option value="sulthan">Sulthan</option>
+                <option value="syahdan">Syahdan</option>
+                <option value="teguh">Teguh</option>
+                <option value="galang">Galang</option>
+                <option value="yusuf">Yusuf</option>
+                <option value="zahra">Zahra</option>
+            </select>
+        </div>
+ 
+        <div class="form-group">
+            <i class="fas fa-envelope"></i>
+            <textarea id="message" placeholder="Pesan" required></textarea>
+        </div>
+        <button class="submit-btn" onclick="sendMessage()">Submit</button>
+        <br><br><br>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function initializeProfile() {
+            const username = sessionStorage.getItem('loggedInUser');
+            if (!username) {
+                window.location.href = 'loginmenfess.html';
+            } else {
+                document.getElementById('username').textContent = username;
+                document.getElementById('from').value = username;
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('loggedInUser');
+            window.location.href = 'loginmenfess.html';
+        }
+
+        function sendMessage() {
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const message = document.getElementById('message').value;
+
+            if (!from || !to || !message) {
+                alert("Harap Isi Semua Kolom!");
+                return;
+            }
+
+            const telegramBotToken = 'YOUR_BOT_TOKEN';
+            const chatId = 'YOUR_CHAT_ID';
+            const telegramUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+            const data = {
+                chat_id: chatId,
+                text: `From: ${from}\nTo: ${to}\nMessage: ${message}`,
+            };
+
+            fetch(telegramUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert("Pesan Dikirim!");
+                } else {
+                    alert("Terjadi Kesalahan!");
+                }
+            })
+            .catch(error => {
+                alert("Gagal Mengirim Pesan.");
+            });
+        }
+
+        window.onload = initializeProfile;
+    </script>
+</body>
+</html>
