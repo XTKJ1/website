@@ -1,91 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Apa Nii</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: #f52d31; /* Ungu gelap */
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            animation: glow 1.5s ease-in-out infinite alternate;
-        }
-
-        .waw-message h1 {
-            font-size: 120px;
-            margin: 0;
-            text-shadow: 0 0 20px rgba(25, 0, 255, 0.8), 0 0 30px rgba(25, 0, 255, 0.8), 0 0 40px rgba(25, 0, 255, 0.3);
-        }
-
-        .waw-message p {
-            font-size: 20px;
-            margin: 20px 0;
-            opacity: 0.7;
-        }
-
-        .back-home {
-            font-size: 18px;
-            text-decoration: none;
-            color: #2949;
-            border: 2px solid #2949;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .back-home:hover {
-            background-color: #2949;
-            color: #2943;
-        }
-
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 10px rgba(25, 0, 255, 0.6), 0 0 20px rgba(25, 0, 255, 0.3), 0 0 30px rgba(255, 0, 255, 0.2);
-            }
-            100% {
-                text-shadow: 0 0 30px rgba(25, 0, 255, 0.8), 0 0 40px rgba(25, 0, 255, 0.3), 0 0 50px rgba(25, 0, 255, 0.3);
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <title>Website X TKJ 1 - Perbaikan</title>
+  <link rel="icon" href="https://malasid.github.io/favicon.png" type="image/x-icon">
+  <meta name="description" content="Website Masih Dalam Perbaikan. Kelas X TKJ 1. Kita Dari SMK 11 MARET JAKARTA">
+  <meta name="author" content="Vamsi">
+  <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <style>
+     html {
+      background: #f1f1f1;
+     }
+     body {
+      background: #fff;
+      max-width: 70%;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      padding: 1.5em 2em;
+      margin: 5em auto;
+      -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+     }
+     button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+     }
+     button:hover {
+      background-color: #0056b3;
+     }
+  </style>
+  <!--[if lt IE 9]>
+  <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 <body>
-    <div class="container">
-        <div class="waw-message">
-            <h1>Oops!</h1>
-            <p>Website Masih Dalam Perbaikan</p>
-            <a href="/" class="back-home">Back to Home</a>
-        </div>
-    </div>
 
-    <script>
-        // Opsional: Menambahkan efek hover pada tombol kembali ke halaman utama
-        document.querySelector('.back-home').addEventListener('mouseover', function () {
-            this.style.transform = 'scale(1.1)';
-        });
+<h1>Dalam Pengerjaan - Silakan kembali lagi nanti</h1>
+<p>Kami sedang melakukan update dan maintenance.</p>
 
-        document.querySelector('.back-home').addEventListener('mouseout', function () {
-            this.style.transform = 'scale(1)';
-        });
-    </script>
+<!-- Button -->
+<button onclick="goBack()">Kembali</button>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
 </body>
 </html>
