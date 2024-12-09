@@ -31,7 +31,7 @@ function addMessage(text, sender) {
   
   if (sender === 'bot') {
     const avatar = document.createElement('img');
-    avatar.src = 'https://xtkj.my.id/BotShadow.jpg';
+    avatar.src = 'BotShadow.jpg';
     avatar.alt = 'Bot';
     avatar.classList.add('avatar');
     messageDiv.appendChild(avatar);
