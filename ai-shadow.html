@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website X TKJ 1 - Chat With Bot</title>
   <link rel="icon" type="image/png" href="https://malasid.github.io/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://xtkj.my.id/css/styleai1.css">
   <link rel="stylesheet" href="https://xtkj.my.id/css/styleai2.css">
   <script src="https://xtkj.my.id/scriptaishadow.js" defer></script>
@@ -24,7 +25,9 @@
     </div>
     <div class="input-container">
       <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" aria-label="Message Input">
-      <button id="send-button">Send</button>
+      <input type="file" id="image-input" accept="image/*" style="display: none;">
+      <button id="image-button" style="color: white; background: blue; border-radius: 20px;"><i class="fa fa-camera"></i></button>
+      <button id="send-button">></button>
     </div>
   </div>
   <div class="developer-info">
