@@ -151,6 +151,48 @@ body {
   font-size: 1rem;
 }
 
+.typing-indicator {
+  display: none;
+  font-size: 16px;
+  font-style: italic;
+  color: #555;
+  margin-top: 10px;
+}
+
+.dots {
+  display: inline-block;
+  font-size: 18px;
+  }
+  
+.dots span {
+  display: inline-block;
+  animation: blink 1.5s infinite;
+  }
+  
+.dots span:nth-child(1) {
+  animation-delay: 0s;
+  }
+  
+.dots span:nth-child(2) {
+  animation-delay: 0.3s;
+  }
+
+.dots span:nth-child(3) {
+  animation-delay: 0.6s;
+  }
+  
+@keyframes blink {
+  0%, 20% {
+    opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        }
+      }
+
 #send-button {
   padding: 10px 20px;
   background: #4a90e2;
