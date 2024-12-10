@@ -16,12 +16,14 @@
     </div>
     <div class="chat-messages" id="chat-messages">
       <!-- Chat messages will appear here -->
-    </div>
+    </div>    
     <div class="typing-indicator" id="typing-indicator">
-      Typing...
+      Typing<span class="dots">
+        <span>.</span><span>.</span><span>.</span>
+      </span>
     </div>
     <div class="input-container">
-      <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off">
+      <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" aria-label="Message Input">
       <button id="send-button">Send</button>
     </div>
   </div>
