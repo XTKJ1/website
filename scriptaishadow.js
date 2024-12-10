@@ -25,6 +25,19 @@ async function sendMessage() {
   }
 }
 
+function showTypingIndicator() {
+  typingIndicator.style.display = 'block';
+  }
+  
+function hideTypingIndicator() {
+  typingIndicator.style.display = 'none';
+}
+
+document.getElementById('send-button').addEventListener('click', () => {
+  showTypingIndicator();
+  setTimeout(hideTypingIndicator, 3000); // Hide after 3 seconds
+  });
+
 function addMessage(text, sender) {
   const messageDiv = document.createElement('div');
   messageDiv.classList.add('message', `${sender}-message`);
