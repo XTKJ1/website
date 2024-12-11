@@ -26,8 +26,6 @@ async function sendMessage() {
 }
 
 document.getElementById("send-button").addEventListener("click", function () {
-  const messageInput = document.getElementById("message-input");
-  const chatMessages = document.getElementById("chat-messages");
 
   if (messageInput.value.trim() !== "") {
     const message = document.createElement("div");
