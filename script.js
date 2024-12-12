@@ -87,6 +87,30 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500);
         }
         
+  function updateTime() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('clock').innerText = timeString;
+        }
+        
+    function updateVisitorCount() {
+            // Simulate real-time visitor count
+            var count = Math.floor(Math.random() * 10000);
+            document.getElementById('visitor-count').innerText = `Visitor Count: ${count}`;
+        }
+        
+    document.addEventListener('DOMContentLoaded', function() {
+            updateTime();
+            setInterval(updateTime, 1000);
+            updateBatteryStatus();
+            updateIP();
+            updateVisitorCount();
+            setInterval(updateVisitorCount, 600000); // Update visitor count every 5 seconds
+        });
+        
 //fungsi rating
 var step = 100;
 
