@@ -87,7 +87,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500);
         }
         
-  function updateTime() {
+  function toggleDarkMode() {
+            var body = document.body;
+            var icon = document.getElementById("dark-mode-icon");
+            body.classList.toggle("dark");
+            if (body.classList.contains("dark")) {
+                icon.classList.remove("fa-adjust");
+                icon.classList.add("fa-sun");
+            } else {
+                icon.classList.remove("fa-sun");
+                icon.classList.add("fa-adjust");
+            }
+        }
+
+        function updateTime() {
             var now = new Date();
             var hours = now.getHours();
             var minutes = now.getMinutes();
@@ -95,14 +108,29 @@ document.addEventListener('DOMContentLoaded', function () {
             var timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             document.getElementById('clock').innerText = timeString;
         }
-        
-    function updateVisitorCount() {
+
+        function updateBatteryStatus() {
+            navigator.getBattery().then(function(battery) {
+                var level = battery.level * 100;
+                document.getElementById('battery').innerText = `Battery: ${level}%`;
+            });
+        }
+
+        function updateIP() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address').innerText = `IP Address: ${data.ip}`;
+                });
+        }
+
+        function updateVisitorCount() {
             // Simulate real-time visitor count
             var count = Math.floor(Math.random() * 10000);
-            document.getElementById('visitor-count').innerText = `Visitor Count: ${count}`;
+            document.getElementById('visitor-count').innerText = `Visit: ${count}`;
         }
-        
-    document.addEventListener('DOMContentLoaded', function() {
+
+        document.addEventListener('DOMContentLoaded', function() {
             updateTime();
             setInterval(updateTime, 1000);
             updateBatteryStatus();
