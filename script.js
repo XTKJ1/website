@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function updateVisitorCount() {
             // Simulate real-time visitor count
-            var count = Math.floor(Math.random() * 10000);
+            var count = Math.floor(Math.random() * 10);
             document.getElementById('visitor-count').innerText = `Visit: ${count}`;
         }
 
