@@ -40,6 +40,11 @@
             animation: gradientMove 3s infinite;
         }
         
+        .typing {
+            font-style: italic;
+            color: #aaa;
+        }
+        
         .alert-box {
             display: none;
             background: rgba(255, 0, 0, 0.8);
@@ -258,7 +263,7 @@
     <div class="container">
         <h1 class="title">Agenda Sekolah</h1>
         <div class="alert-box" id="alert-box">
-            <span>-</span>
+            <span><div id="chat-output"></div></span>
             <button class="close-btn" onclick="hideAlert()">×</button>
         </div>
         <button onclick="showAlert()" class="btn">Tampilkan Alert</button>
@@ -398,6 +403,83 @@
         }
 
         document.addEventListener("DOMContentLoaded", perbaruiAgenda);
+        
+        // Chat logikanya ditentukan di sini
+        const botMessages = [
+            "Halo! Saya Ai-Shadow",
+            "Saya akan menginformasikan ",
+            "Di bawah ini adalah agenda untuk besok",
+            "Saya akan selalu ganti otomatis setiap jam 12 siang",
+            "Sudah di situ aja informasi dari saya",
+            "Terima kasih telah menggunakan website xtkj.my.id!",
+            "Semoga hari mu menyenangkan!"
+        ];
+
+        let chatOutput = document.getElementById("chat-output");
+        let messageIndex = 0;
+
+        // Fungsi untuk menampilkan animasi mengetik
+        function showTyping() {
+            let typingIndicator = document.createElement("div");
+            typingIndicator.className = "typing";
+            typingIndicator.textContent = "Ai Shadow Sedang Mengetik...";
+            typingIndicator.id = "typing-indicator";
+            chatOutput.appendChild(typingIndicator);
+            chatOutput.scrollTop = chatOutput.scrollHeight;
+        }
+
+        // Fungsi untuk menghapus animasi mengetik
+        function hideTyping() {
+            let typingIndicator = document.getElementById("typing-indicator");
+            if (typingIndicator) {
+                chatOutput.removeChild(typingIndicator);
+            }
+        }
+
+        // Fungsi untuk menampilkan pesan bot dengan efek mengetik
+        function displayBotMessage(message) {
+            let botMessage = document.createElement("div");
+            botMessage.className = "bot-message";
+            chatOutput.appendChild(botMessage);
+
+            let index = 0;
+            let typingEffect = setInterval(() => {
+                botMessage.textContent += message[index];
+                index++;
+                chatOutput.scrollTop = chatOutput.scrollHeight;
+
+                if (index >= message.length) {
+                    clearInterval(typingEffect);
+                }
+            }, 50); // Kecepatan mengetik (50ms per karakter)
+        }
+
+        // Fungsi untuk menjalankan bot secara otomatis
+        function runBot() {
+            if (messageIndex < botMessages.length) {
+                showTyping();
+                setTimeout(() => {
+                    hideTyping();
+                    displayBotMessage(botMessages[messageIndex]);
+                    messageIndex++;
+                }, 2000); // Durasi "mengetik" sebelum pesan muncul
+            } else {
+                let endMessage = document.createElement("div");
+                endMessage.className = "bot-message";
+                endMessage.textContent = "https://xtkj.my.id/ai-shadow";
+                chatOutput.appendChild(endMessage);
+            }
+        }
+
+        // Jalankan bot setiap beberapa detik
+        function startBot() {
+            setInterval(() => {
+                runBot();
+            }, 4000); // Pesan bot muncul setiap 4 detik
+        }
+
+        // Mulai bot
+        startBot();
     </script>
 </body>
 </html>
