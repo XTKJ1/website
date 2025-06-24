@@ -42,7 +42,7 @@
             text-align: left;
         }
         .accabout {
-            background-clip: text; 
+            -webkit-text-stroke: 1px #d41a773d;
             text-align: center;
         }
         .tokx {
