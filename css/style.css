@@ -43,7 +43,6 @@
         }
         .accabout {
             -webkit-text-stroke: 1px #d41a773d; 
-            background: linear-gradient(to top right, #fab6e7, #d41a77 80%); 
             background-clip: text; 
             text-align: center;
         }
