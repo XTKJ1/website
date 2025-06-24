@@ -43,6 +43,7 @@
         }
         .accabout {
             -webkit-text-stroke: 1px #d41a773d;
+            background-clip: text;
             text-align: center;
         }
         .tokx {
